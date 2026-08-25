@@ -1,106 +1,70 @@
 {
-  "background_color": "#000000",
-  "description": "ShadowClaw Template - Browser-native AI agent.",
-  "display": "standalone",
-  "id": "shadow-claw",
-  "name": "ShadowClaw",
-  "short_name": "ShadowClaw",
+  "name": "pwgen - Knowledge Hub",
+  "short_name": "pwgen 🔐",
+  "description": "WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.",
   "start_url": ".",
-  "theme_color": "#000000",
-  "share_target": {
-    "action": "share/share-target.html",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url",
-      "files": [
-        {
-          "name": "file",
-          "accept": [
-            "*/*",
-            "application/*",
-            "text/*",
-            "image/*",
-            "audio/*",
-            "video/*",
-            "application/octet-stream"
-          ]
-        }
-      ]
-    }
-  },
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "any",
   "icons": [
     {
-      "purpose": "any",
-      "sizes": "48x48",
       "src": "assets/icons/48.png",
-      "type": "image/png"
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "purpose": "any",
-      "sizes": "72x72",
       "src": "assets/icons/72.png",
-      "type": "image/png"
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "purpose": "any",
-      "sizes": "96x96",
       "src": "assets/icons/96.png",
-      "type": "image/png"
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "purpose": "any",
-      "sizes": "128x128",
       "src": "assets/icons/128.png",
-      "type": "image/png"
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "purpose": "any",
-      "sizes": "152x152",
       "src": "assets/icons/152.png",
-      "type": "image/png"
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "purpose": "any",
-      "sizes": "192x192",
       "src": "assets/icons/192.png",
-      "type": "image/png"
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "purpose": "any",
-      "sizes": "512x512",
       "src": "assets/icons/512.png",
-      "type": "image/png"
-    },
-    {
-      "purpose": "any",
-      "sizes": "1024x1024",
-      "src": "assets/icons/1024.png",
-      "type": "image/png"
-    },
-    {
-      "purpose": "maskable",
-      "sizes": "1024x1024",
-      "src": "assets/icons/1024.png",
-      "type": "image/png"
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "screenshots": [
     {
+      "src": "assets/screenshots/pwgen-screenshot-wide.png",
+      "sizes": "954x470",
+      "type": "image/png",
       "form_factor": "wide",
-      "label": "shadow-claw",
-      "sizes": "1920x1052",
-      "src": "assets/screenshots/shadow-claw-screenshot-1920x1052.png",
-      "type": "image/png"
+      "label": "pwgen password generator"
     },
     {
+      "src": "assets/screenshots/pwgen-screenshot.png",
+      "sizes": "470x954",
+      "type": "image/png",
       "form_factor": "narrow",
-      "label": "shadow-claw",
-      "sizes": "731x1045",
-      "src": "assets/screenshots/shadow-claw-screenshot-731x1045.png",
-      "type": "image/png"
+      "label": "pwgen password generator"
     }
   ]
 }

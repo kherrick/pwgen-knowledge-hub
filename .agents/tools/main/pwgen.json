@@ -1,0 +1,25 @@
+{
+  "name": "pwgen",
+  "description": "Generate custom secure or phonetic passwords using the WASM pwgen engine with configurable CLI flags, password length, and count.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "flags": {
+        "type": "string",
+        "description": "CLI flags for pwgen (e.g. '-sy', '-0', '-A', '-B', '-v'). Default is '-sy'."
+      },
+      "length": {
+        "type": "number",
+        "description": "Length of each password in characters. Default is 20."
+      },
+      "count": {
+        "type": "number",
+        "description": "Number of passwords to generate. Default is 1."
+      }
+    }
+  },
+  "execution": {
+    "type": "javascript",
+    "code": "const raw = typeof $PIPE_DATA !== 'undefined' && $PIPE_DATA ? (typeof $PIPE_DATA === 'string' ? JSON.parse($PIPE_DATA) : $PIPE_DATA) : {}; let flags = '-sy'; let length = 20; let count = 1; let obj = {}; let str = ''; if (typeof raw === 'string') { str = raw.trim(); } else if (raw && typeof raw === 'object') { obj = raw; if (typeof raw.rawInput === 'string') str = raw.rawInput.trim(); else if (raw.rawInput && typeof raw.rawInput === 'object') obj = Object.assign({}, raw.rawInput, raw); } if (str && str.startsWith('{') && str.endsWith('}')) { try { const parsed = JSON.parse(str); if (parsed && typeof parsed === 'object') { obj = Object.assign({}, parsed, obj); str = ''; } } catch (e) {} } if (obj.flags !== undefined && obj.flags !== null && String(obj.flags).trim()) flags = String(obj.flags).trim(); if (obj.length !== undefined && obj.length !== null && !isNaN(Number(obj.length))) length = Number(obj.length); if (obj.count !== undefined && obj.count !== null && !isNaN(Number(obj.count))) count = Number(obj.count); else if (obj.number !== undefined && obj.number !== null && !isNaN(Number(obj.number))) count = Number(obj.number); if (str) { const flagMatches = str.match(/-[a-zA-Z0-9]+/g); if (flagMatches && flagMatches.length > 0) flags = flagMatches.join(''); const strippedStr = str.replace(/-[a-zA-Z0-9]+/g, ' '); const numberMatches = strippedStr.match(/\\b\\d+\\b/g); if (numberMatches && numberMatches.length > 0) { const parsedLen = Number(numberMatches[0]); if (!isNaN(parsedLen) && parsedLen > 0) length = parsedLen; if (numberMatches.length > 1) { const parsedCount = Number(numberMatches[1]); if (!isNaN(parsedCount) && parsedCount > 0) count = parsedCount; } } } const requestId = Math.random().toString(36).slice(2); const cmd = new BroadcastChannel('pwgen-commands'); const res = new BroadcastChannel('pwgen-results'); const result = await new Promise((resolve) => { const t = setTimeout(() => { res.close(); resolve('Timed out \\u2014 pwgen page may not be loaded yet.'); }, 12000); res.onmessage = (e) => { if (e.data && e.data.requestId === requestId) { clearTimeout(t); res.close(); resolve(e.data.result); } }; cmd.postMessage({ type: 'pwgen', requestId, params: { flags, length, count, rawInput: raw } }); cmd.close(); }); return result;"
+  }
+}

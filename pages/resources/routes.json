@@ -6,6 +6,27 @@
     "/pages/main/~/content/01-about.md": {
       "prettyPath": "/main/about"
     },
+    "/pages/main/~/content/02-cli-and-flags.md": {
+      "prettyPath": "/main/cli-and-flags"
+    },
+    "/pages/main/~/content/03-wasm-and-compilation.md": {
+      "prettyPath": "/main/wasm-and-compilation"
+    },
+    "/pages/main/~/content/04-custom-element-and-web-integration.md": {
+      "prettyPath": "/main/custom-element-and-web-integration"
+    },
+    "/pages/main/~/content/05-historical-targets-wbn-wapm.md": {
+      "prettyPath": "/main/historical-targets-wbn-wapm"
+    },
+    "/pages/main/~/content/06-security-entropy-and-sha1.md": {
+      "prettyPath": "/main/security-entropy-and-sha1"
+    },
+    "/pages/main/~/content/07-web-platform-and-performance.md": {
+      "prettyPath": "/main/web-platform-and-performance"
+    },
+    "/pages/main/~/content/08-agent-skills-and-tools.md": {
+      "prettyPath": "/main/agent-skills-and-tools"
+    },
     "/pages/main/MEMORY.md": {
       "prettyPath": "/main/memory"
     }

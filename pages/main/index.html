@@ -1,42 +1,240 @@
 ---
-title: "ShadowClaw Template"
+title: "pwgen - Knowledge Hub"
 created: "1970-01-01T00:00:00Z"
 updated: "1970-01-01T00:00:00Z"
-slug: "shadow-claw-template"
+slug: "pwgen"
 ---
 
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+
 <article>
-  <h2>Welcome to ShadowClaw Template</h2>
+  <div class="pwgen-header">
+    <div>
+      <h1 class="pwgen-header-title">🔐 pwgen - WebAssembly Knowledge Hub</h1>
+      <p class="pwgen-header-subtitle">
+        Unix password generator compiled to WebAssembly for CLI, Custom
+        Elements, ESM, Node.js & Web Apps
+      </p>
+    </div>
+    <div class="pwgen-badge-group">
+      <span class="pwgen-badge pwgen-badge--cyan">v1.2.6 Wasm</span>
+      <span class="pwgen-badge pwgen-badge--emerald">Web Component</span>
+      <span class="pwgen-badge pwgen-badge--purple">Zero-Dependency</span>
+      <span class="pwgen-badge pwgen-badge--amber">PWA Ready</span>
+    </div>
+  </div>
+
+  <h2>🧪 Live Interactive Demo</h2>
   <p>
-    This site is built with
-    <a href="https://github.com/xt-ml/shadow-claw">ShadowClaw</a> and published
-    automatically via Github Actions
-  </p>
-  <p>
-    Content lives in pages/main/ as plain markdown files. Pushing to main
-    triggers a build that pre-renders each page into a fast, static site.
+    Test the compiled WebAssembly engine in real-time below via the native
+    <code>&lt;x-pwgen&gt;</code> custom element. Adjust length, count, and flag
+    settings dynamically.
   </p>
 
-  <h2>Pages</h2>
+  <div
+    class="pwgen-demo-container"
+    data-no-swipe="true"
+    data-prevent-nav="true"
+    data-isolate-input="true"
+  >
+    <div id="pwgen-live-output" class="pwgen-output-box">
+      <x-pwgen flags="-sy" length="20" number="1" composed></x-pwgen>
+    </div>
+
+    <div
+      class="pwgen-controls-grid"
+      data-no-swipe="true"
+      data-prevent-nav="true"
+    >
+      <div
+        class="pwgen-control-group"
+        data-no-swipe="true"
+        data-prevent-nav="true"
+      >
+        <label>Password Length: <span id="pw-length-val">20</span></label>
+        <mwc-slider
+          id="pw-length-slider"
+          min="5"
+          max="50"
+          value="20"
+          pin
+          markers
+          data-no-swipe="true"
+          data-prevent-nav="true"
+          data-isolate-input="true"
+        ></mwc-slider>
+      </div>
+
+      <div
+        class="pwgen-control-group"
+        data-no-swipe="true"
+        data-prevent-nav="true"
+      >
+        <label>Number of Passwords: <span id="pw-count-val">1</span></label>
+        <mwc-slider
+          id="pw-count-slider"
+          min="1"
+          max="10"
+          value="1"
+          pin
+          markers
+          data-no-swipe="true"
+          data-prevent-nav="true"
+          data-isolate-input="true"
+        ></mwc-slider>
+      </div>
+    </div>
+
+    <div
+      class="pwgen-control-group"
+      data-no-swipe="true"
+      data-prevent-nav="true"
+    >
+      <label>Options / Flags</label>
+      <div
+        class="pwgen-checkbox-grid"
+        data-no-swipe="true"
+        data-prevent-nav="true"
+      >
+        <mwc-formfield label="🔒 Secure (-s)">
+          <mwc-checkbox
+            class="pwgen-flag-check"
+            value="s"
+            checked
+          ></mwc-checkbox>
+        </mwc-formfield>
+        <mwc-formfield label="🔣 Symbols (-y)">
+          <mwc-checkbox
+            class="pwgen-flag-check"
+            value="y"
+            checked
+          ></mwc-checkbox>
+        </mwc-formfield>
+        <mwc-formfield label="🚫 No Numbers (-0)">
+          <mwc-checkbox class="pwgen-flag-check" value="0"></mwc-checkbox>
+        </mwc-formfield>
+        <mwc-formfield label="🚫 No Capitals (-A)">
+          <mwc-checkbox class="pwgen-flag-check" value="A"></mwc-checkbox>
+        </mwc-formfield>
+        <mwc-formfield label="👁️ No Ambiguous (-B)">
+          <mwc-checkbox class="pwgen-flag-check" value="B"></mwc-checkbox>
+        </mwc-formfield>
+        <mwc-formfield label="🙊 No Vowels (-v)">
+          <mwc-checkbox class="pwgen-flag-check" value="v"></mwc-checkbox>
+        </mwc-formfield>
+      </div>
+    </div>
+
+    <div class="pwgen-btn-group">
+      <mwc-button
+        id="pwgen-generate-btn"
+        raised
+        label="⚡ Generate Password"
+      ></mwc-button>
+      <mwc-button
+        id="pwgen-copy-btn"
+        outlined
+        label="📋 Copy to Clipboard"
+      ></mwc-button>
+    </div>
+  </div>
+
+  <h2>✨ Key Architectural Highlights</h2>
+  <div class="pwgen-grid">
+    <div class="pwgen-card">
+      <h3>⚙️ C Core compiled to WASM</h3>
+      <p>
+        The classic Unix utility by Theodore Ts'o compiled with Emscripten into
+        optimized WebAssembly bytecode, executing natively at sub-millisecond
+        speeds.
+      </p>
+    </div>
+    <div class="pwgen-card">
+      <h3>🧩 ESM & Base64 Inlining</h3>
+      <p>
+        Zero network latency. The WebAssembly binary is encoded directly inside
+        the JavaScript ESM module as a Base64 payload.
+      </p>
+    </div>
+    <div class="pwgen-card">
+      <h3>🌐 Native Custom Element</h3>
+      <p>
+        Encapsulated within Shadow DOM as <code>&lt;x-pwgen&gt;</code>, offering
+        reactive property binding and framework independence.
+      </p>
+    </div>
+    <div class="pwgen-card">
+      <h3>💻 Universal Environments</h3>
+      <p>
+        Runs anywhere JavaScript executes: CLI (`npx pwgen`), Node.js CommonJS
+        (`require('pwgen')`), Browser ESM, and PWAs.
+      </p>
+    </div>
+  </div>
+
+  <h2>📚 Knowledge Hub Chapters</h2>
   <ul>
-    <li><a href="/main/about">About</a></li>
+    <li>
+      <a href="/main/about"
+        >Chapter 1: Architecture, Origins & WebAssembly Evolution</a
+      >
+    </li>
+    <li>
+      <a href="/main/cli-and-flags"
+        >Chapter 2: CLI Usage, Options & Node.js Integration</a
+      >
+    </li>
+    <li>
+      <a href="/main/wasm-and-compilation"
+        >Chapter 3: C to WebAssembly Compilation Pipeline</a
+      >
+    </li>
+    <li>
+      <a href="/main/custom-element-and-web-integration"
+        >Chapter 4: Native Custom Element (&lt;x-pwgen&gt;) & Framework
+        Integration</a
+      >
+    </li>
+    <li>
+      <a href="/main/historical-targets-wbn-wapm"
+        >Chapter 5: Historical Evolution: Web Bundles (.wbn) & WAPM
+        Distribution</a
+      >
+    </li>
+    <li>
+      <a href="/main/security-entropy-and-sha1"
+        >Chapter 6: Password Security, Phonetics & Deterministic SHA1 Seeding</a
+      >
+    </li>
+    <li>
+      <a href="/main/web-platform-and-performance"
+        >Chapter 7: Web Platform Optimization & PWA Performance Engineering</a
+      >
+    </li>
+    <li>
+      <a href="/main/agent-skills-and-tools"
+        >Chapter 8: Agent Skills, Declarative Tools & Slash Commands</a
+      >
+    </li>
+    <li>
+      <a href="/main/memory">pwgen Technical Memory & Architecture Reference</a>
+    </li>
   </ul>
-  <h2>How it works</h2>
-  <ol>
-    <li>Write markdown in pages/main/.</li>
-    <li>Optionally configure pretty-path URLs in pages/routes.json.</li>
-    <li>Push to main — Github Actions builds and deploys automatically.</li>
-  </ol>
 
-  <hr
-    style="
-      margin: 2rem 0;
-      border: 0;
-      border-top: 1px solid var(--shadow-claw-border-color, #2a402e);
-    "
-  />
+  <hr />
 
-  <p style="text-align: center; margin-top: 1rem">
-    ➡️ <a href="/main/about">Next Page</a>
+  <p class="pwgen-next-chapter">
+    ➡️
+    <a href="/main/about"
+      >Next Chapter: Architecture, Origins & WebAssembly Evolution</a
+    >
   </p>
+
+  <script type="module">
+    import "https://kherrick.github.io/pwgen/dist/lib/esm/component/XPwgen.js";
+    import "https://kherrick.github.io/x-pwgen-components/dist/esm/index.js";
+  </script>
 </article>

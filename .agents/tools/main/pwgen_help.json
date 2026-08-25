@@ -1,0 +1,17 @@
+{
+  "name": "pwgen_help",
+  "description": "Explain pwgen command-line flags and options in human-readable detail.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "flags": {
+        "type": "string",
+        "description": "CLI flag string to explain (e.g. '-sy', '-0ABv'). If omitted or empty, explains all available pwgen flags."
+      }
+    }
+  },
+  "execution": {
+    "type": "javascript",
+    "code": "const input = typeof $PIPE_DATA !== 'undefined' && $PIPE_DATA ? JSON.parse($PIPE_DATA) : {}; const requestId = Math.random().toString(36).slice(2); const cmd = new BroadcastChannel('pwgen-commands'); const res = new BroadcastChannel('pwgen-results'); const result = await new Promise((resolve) => { const t = setTimeout(() => { res.close(); resolve('Timed out \\u2014 pwgen page may not be loaded yet.'); }, 12000); res.onmessage = (e) => { if (e.data && e.data.requestId === requestId) { clearTimeout(t); res.close(); resolve(e.data.result); } }; cmd.postMessage({ type: 'pwgen_help', requestId, params: { flags: input.flags || input.rawInput || '' } }); cmd.close(); }); return result;"
+  }
+}

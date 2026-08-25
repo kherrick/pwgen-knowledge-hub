@@ -1,0 +1,556 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & THEMING (CSS Custom Properties)
+   ========================================================================== */
+
+:root {
+  /* Fonts */
+  --shadow-claw-font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --shadow-claw-font-mono:
+    "JetBrains Mono", "Fira Code", "Roboto Mono", monospace;
+
+  --pwgen-font-family: var(--shadow-claw-font-mono);
+  --x-pwgen-font-family: var(--shadow-claw-font-mono);
+  --x-pwgen-font-size: 1.1rem;
+  --x-pwgen-li-padding: 0.5rem 0;
+
+  /* Theme Palette — Light Mode Default */
+  --shadow-claw-bg-primary: #f8fafc;
+  --shadow-claw-bg-secondary: #ffffff;
+  --shadow-claw-bg-tertiary: #f1f5f9;
+  --shadow-claw-bg-card: #ffffff;
+  --shadow-claw-bg-primary-reverse: #0f172a;
+  --shadow-claw-border-color: #cbd5e1;
+
+  --shadow-claw-accent-primary: #0284c7;
+  --shadow-claw-accent-hover: #0369a1;
+  --shadow-claw-accent-secondary: #059669;
+  --shadow-claw-surface-tint: #0284c7;
+  --shadow-claw-on-primary: #ffffff;
+
+  --shadow-claw-text-primary: #0f172a;
+  --shadow-claw-text-secondary: #334155;
+  --shadow-claw-text-tertiary: #64748b;
+
+  --shadow-claw-link: #0284c7;
+  --shadow-claw-link-hover: #0369a1;
+
+  --shadow-claw-code-bg: #f1f5f9;
+  --shadow-claw-code-text: #0284c7;
+
+  --shadow-claw-shadow-sm:
+    0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-claw-shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-claw-shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  --mdc-checkbox-disabled-color: var(--shadow-claw-border-color);
+  --mdc-checkbox-unchecked-color: var(--shadow-claw-text-primary);
+  --mdc-slider-track-color: var(--shadow-claw-border-color);
+  --mdc-theme-primary: #38bdf8;
+  --mdc-theme-secondary: var(--mdc-theme-primary);
+  --mdc-theme-on-primary: #ffffff;
+  --mdc-theme-on-secondary: #ffffff;
+  --mdc-theme-on-surface: var(--shadow-claw-text-primary);
+  --mdc-theme-text-primary-on-background: var(--shadow-claw-text-primary);
+  --mdc-theme-text-secondary-on-background: #94a3b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-claw-bg-primary: #0f172a;
+    --shadow-claw-bg-secondary: #1e293b;
+    --shadow-claw-bg-tertiary: #1b2638;
+    --shadow-claw-bg-card: #182234;
+    --shadow-claw-bg-primary-reverse: #f8fafc;
+    --shadow-claw-border-color: #334155;
+
+    --shadow-claw-accent-primary: #38bdf8;
+    --shadow-claw-accent-hover: #0284c7;
+    --shadow-claw-accent-secondary: #34d399;
+    --shadow-claw-surface-tint: #38bdf8;
+    --shadow-claw-on-primary: #0f172a;
+
+    --shadow-claw-text-primary: #f8fafc;
+    --shadow-claw-text-secondary: #94a3b8;
+    --shadow-claw-text-tertiary: #64748b;
+
+    --shadow-claw-link: #38bdf8;
+    --shadow-claw-link-hover: #7dd3fc;
+
+    --shadow-claw-code-bg: #0b1120;
+    --shadow-claw-code-text: #38bdf8;
+
+    --shadow-claw-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-claw-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-claw-shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.light-mode {
+  --shadow-claw-bg-primary: #f8fafc;
+  --shadow-claw-bg-secondary: #ffffff;
+  --shadow-claw-bg-tertiary: #f1f5f9;
+  --shadow-claw-bg-card: #ffffff;
+  --shadow-claw-bg-primary-reverse: #0f172a;
+  --shadow-claw-border-color: #cbd5e1;
+
+  --shadow-claw-accent-primary: #0284c7;
+  --shadow-claw-accent-hover: #0369a1;
+  --shadow-claw-accent-secondary: #059669;
+  --shadow-claw-surface-tint: #0284c7;
+  --shadow-claw-on-primary: #ffffff;
+
+  --shadow-claw-text-primary: #0f172a;
+  --shadow-claw-text-secondary: #334155;
+  --shadow-claw-text-tertiary: #64748b;
+
+  --shadow-claw-link: #0284c7;
+  --shadow-claw-link-hover: #0369a1;
+
+  --shadow-claw-code-bg: #f1f5f9;
+  --shadow-claw-code-text: #0284c7;
+}
+
+.dark-mode {
+  --shadow-claw-bg-primary: #0f172a;
+  --shadow-claw-bg-secondary: #1e293b;
+  --shadow-claw-bg-tertiary: #1b2638;
+  --shadow-claw-bg-card: #182234;
+  --shadow-claw-bg-primary-reverse: #f8fafc;
+  --shadow-claw-border-color: #334155;
+
+  --shadow-claw-accent-primary: #38bdf8;
+  --shadow-claw-accent-hover: #0284c7;
+  --shadow-claw-accent-secondary: #34d399;
+  --shadow-claw-surface-tint: #38bdf8;
+  --shadow-claw-on-primary: #0f172a;
+
+  --shadow-claw-text-primary: #f8fafc;
+  --shadow-claw-text-secondary: #94a3b8;
+  --shadow-claw-text-tertiary: #64748b;
+
+  --shadow-claw-link: #38bdf8;
+  --shadow-claw-link-hover: #7dd3fc;
+
+  --shadow-claw-code-bg: #0b1120;
+  --shadow-claw-code-text: #38bdf8;
+}
+
+/* ==========================================================================
+   2. BASE & TYPOGRAPHY STYLES
+   ========================================================================== */
+
+body {
+  background-color: var(--shadow-claw-bg-primary);
+  color: var(--shadow-claw-text-primary);
+  font-family: var(--shadow-claw-font-sans);
+  margin: 0;
+  line-height: 1.6;
+}
+
+article {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--shadow-claw-text-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--shadow-claw-border-color);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin-top: 1.25rem;
+}
+
+a {
+  color: var(--shadow-claw-link);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--shadow-claw-link-hover);
+  text-decoration: underline;
+}
+
+code,
+kbd,
+pre {
+  font-family: var(--shadow-claw-font-mono);
+}
+
+code {
+  background: var(--shadow-claw-code-bg);
+  color: var(--shadow-claw-code-text);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--shadow-claw-border-color);
+}
+
+pre {
+  background: var(--shadow-claw-code-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--shadow-claw-border-color);
+  overflow-x: auto;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: var(--shadow-claw-text-primary);
+}
+
+kbd {
+  background-color: var(--shadow-claw-bg-tertiary);
+  color: var(--shadow-claw-text-primary);
+  border-radius: 4px;
+  border: 1px solid var(--shadow-claw-border-color);
+  box-shadow: 0 1px 0 var(--shadow-claw-border-color);
+  display: inline-block;
+  font-size: 0.85em;
+  padding: 0.15em 0.4em;
+}
+
+/* ==========================================================================
+   3. LAYOUT & NAVIGATION COMPONENTS
+   ========================================================================== */
+
+.header-title-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.header-title-logo {
+  display: flex;
+  flex-shrink: 0;
+  height: 2.125rem;
+  margin-right: 0.35rem;
+  transition: transform 0.2s ease;
+  width: 2.125rem;
+}
+
+.header-title-link:hover .header-title-logo {
+  transform: scale(1.05);
+}
+
+.header-title {
+  align-items: center;
+  color: var(--shadow-claw-text-primary);
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-left: 0;
+}
+
+.pwgen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--shadow-claw-border-color);
+  padding-bottom: 1rem;
+}
+
+.pwgen-header-title {
+  margin: 0;
+  font-family: var(--shadow-claw-font-mono);
+  color: var(--shadow-claw-accent-primary);
+  font-size: 1.75rem;
+}
+
+.pwgen-header-subtitle {
+  margin: 0.25rem 0 0 0;
+  color: var(--shadow-claw-text-secondary);
+  font-size: 1rem;
+}
+
+.pwgen-badge-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--shadow-claw-border-color);
+}
+
+.pwgen-next-chapter {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   4. CONTENT & DATA COMPONENTS (Badges, Cards, Grids, Tables)
+   ========================================================================== */
+
+/* Badges */
+.pwgen-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--shadow-claw-font-mono);
+}
+
+.pwgen-badge--cyan {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--shadow-claw-accent-primary);
+  border: 1px solid var(--shadow-claw-border-color);
+}
+
+.pwgen-badge--emerald {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--shadow-claw-accent-secondary);
+  border: 1px solid var(--shadow-claw-border-color);
+}
+
+.pwgen-badge--purple {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid var(--shadow-claw-border-color);
+}
+
+.pwgen-badge--amber {
+  background: rgba(251, 191, 36, 0.15);
+  color: #d97706;
+  border: 1px solid var(--shadow-claw-border-color);
+}
+
+/* Cards & Content Grid */
+.pwgen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.pwgen-card {
+  background: var(--shadow-claw-bg-card);
+  border: 1px solid var(--shadow-claw-border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-claw-shadow-sm);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pwgen-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--shadow-claw-accent-primary);
+  box-shadow: var(--shadow-claw-shadow-md);
+}
+
+.pwgen-card h3 {
+  margin-top: 0;
+  color: var(--shadow-claw-accent-primary);
+}
+
+.pwgen-card p {
+  margin-bottom: 0;
+  color: var(--shadow-claw-text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--shadow-claw-border-color);
+}
+
+th {
+  background-color: var(--shadow-claw-bg-tertiary);
+  color: var(--shadow-claw-text-primary);
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: var(--shadow-claw-bg-tertiary);
+}
+
+/* ==========================================================================
+   5. INTERACTIVE DEMO & CONTROLS (Sliders, Checkboxes, Buttons)
+   ========================================================================== */
+
+.pwgen-demo-container {
+  background: var(--shadow-claw-bg-card);
+  border: 1px solid var(--shadow-claw-border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-claw-shadow-md);
+}
+
+.pwgen-output-box {
+  background: var(--shadow-claw-bg-tertiary);
+  border: 1px dashed var(--shadow-claw-accent-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 4rem;
+  font-family: var(--shadow-claw-font-mono);
+  font-size: 1.2rem;
+  color: var(--shadow-claw-accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+  margin-bottom: 1.25rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pwgen-controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.pwgen-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pwgen-control-group label {
+  font-size: 0.85rem;
+  color: var(--shadow-claw-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pwgen-control-group label span {
+  color: var(--shadow-claw-accent-primary);
+}
+
+.pwgen-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.pwgen-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--shadow-claw-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.pwgen-checkbox-label input[type="checkbox"] {
+  accent-color: var(--shadow-claw-accent-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.pwgen-range-input {
+  width: 100%;
+  accent-color: var(--shadow-claw-accent-primary);
+}
+
+/* Buttons */
+.pwgen-btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pwgen-btn {
+  background: var(--shadow-claw-accent-primary);
+  color: var(--shadow-claw-on-primary);
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-family: var(--shadow-claw-font-mono);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pwgen-btn:hover {
+  background: var(--shadow-claw-accent-hover);
+  transform: translateY(-1px);
+}
+
+.pwgen-btn:active {
+  transform: translateY(0);
+}
+
+.pwgen-btn--secondary {
+  background: var(--shadow-claw-bg-tertiary);
+  color: var(--shadow-claw-text-primary);
+  border: 1px solid var(--shadow-claw-border-color);
+}
+
+.pwgen-btn--secondary:hover {
+  background: var(--shadow-claw-border-color);
+}
+
+/* ==========================================================================
+   6. MATERIAL WEB COMPONENTS (MWC Overrides)
+   ========================================================================== */
+
+#pwgen-generate-btn {
+  --mdc-theme-primary: var(--shadow-claw-accent-primary);
+  --mdc-theme-on-primary: #ffffff;
+}
+
+#pwgen-copy-btn {
+  --mdc-theme-primary: var(--shadow-claw-accent-primary);
+  --mdc-theme-on-primary: var(--shadow-claw-accent-primary);
+}
+
+mwc-formfield {
+  --mdc-theme-text-primary-on-background: var(--shadow-claw-text-secondary);
+}
