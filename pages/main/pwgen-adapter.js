@@ -468,8 +468,14 @@
       }
     });
 
-    // Helper to stop drag gestures from propagating to parent page swipe detectors
-    const stopPropagation = (e) => {
+    // Helper to extract numeric value from slider event or target
+    const getSliderVal = (e, slider, defaultVal) => {
+      const raw = e?.detail?.value ?? e?.target?.value ?? slider?.value;
+      return Math.round(Number(raw)) || defaultVal;
+    };
+
+    // Helper to stop touch swipe navigation bubbling to parent containers
+    const stopTouchSwipe = (e) => {
       if (e && typeof e.stopPropagation === "function") {
         e.stopPropagation();
       }
@@ -481,21 +487,13 @@
     if (lengthSlider && lengthVal) {
       // Input event (dragging): update visual value display only
       const handleLengthInput = (e) => {
-        stopPropagation(e);
-        const target = e.target || lengthSlider;
-        const val = Math.round(
-          Number(target.value ?? e.detail?.value ?? lengthSlider.value) || 20,
-        );
+        const val = getSliderVal(e, lengthSlider, 20);
         lengthVal.innerText = String(val);
       };
 
-      // Change / release event: commit attribute change and trigger generation
+      // Change event (release/commit): update attribute and trigger generation
       const handleLengthChange = (e) => {
-        stopPropagation(e);
-        const target = e.target || lengthSlider;
-        const val = Math.round(
-          Number(target.value ?? e.detail?.value ?? lengthSlider.value) || 20,
-        );
+        const val = getSliderVal(e, lengthSlider, 20);
         lengthVal.innerText = String(val);
         const activeXpwgen = document.querySelector("x-pwgen") || xpwgen;
         if (activeXpwgen) {
@@ -506,21 +504,11 @@
 
       lengthSlider.addEventListener("input", handleLengthInput);
       lengthSlider.addEventListener("change", handleLengthChange);
-      lengthSlider.addEventListener("pointerup", handleLengthChange);
-      lengthSlider.addEventListener("touchend", handleLengthChange);
-      lengthSlider.addEventListener("mouseup", handleLengthChange);
-
-      [
-        "touchstart",
-        "touchmove",
-        "pointerdown",
-        "pointermove",
-        "mousedown",
-        "mousemove",
-      ].forEach((evtName) => {
-        lengthSlider.addEventListener(evtName, stopPropagation, {
-          passive: true,
-        });
+      lengthSlider.addEventListener("touchstart", stopTouchSwipe, {
+        passive: true,
+      });
+      lengthSlider.addEventListener("touchmove", stopTouchSwipe, {
+        passive: true,
       });
     }
 
@@ -530,21 +518,13 @@
     if (countSlider && countVal) {
       // Input event (dragging): update visual value display only
       const handleCountInput = (e) => {
-        stopPropagation(e);
-        const target = e.target || countSlider;
-        const val = Math.round(
-          Number(target.value ?? e.detail?.value ?? countSlider.value) || 1,
-        );
+        const val = getSliderVal(e, countSlider, 1);
         countVal.innerText = String(val);
       };
 
-      // Change / release event: commit attribute change and trigger generation
+      // Change event (release/commit): update attribute and trigger generation
       const handleCountChange = (e) => {
-        stopPropagation(e);
-        const target = e.target || countSlider;
-        const val = Math.round(
-          Number(target.value ?? e.detail?.value ?? countSlider.value) || 1,
-        );
+        const val = getSliderVal(e, countSlider, 1);
         countVal.innerText = String(val);
         const activeXpwgen = document.querySelector("x-pwgen") || xpwgen;
         if (activeXpwgen) {
@@ -555,21 +535,11 @@
 
       countSlider.addEventListener("input", handleCountInput);
       countSlider.addEventListener("change", handleCountChange);
-      countSlider.addEventListener("pointerup", handleCountChange);
-      countSlider.addEventListener("touchend", handleCountChange);
-      countSlider.addEventListener("mouseup", handleCountChange);
-
-      [
-        "touchstart",
-        "touchmove",
-        "pointerdown",
-        "pointermove",
-        "mousedown",
-        "mousemove",
-      ].forEach((evtName) => {
-        countSlider.addEventListener(evtName, stopPropagation, {
-          passive: true,
-        });
+      countSlider.addEventListener("touchstart", stopTouchSwipe, {
+        passive: true,
+      });
+      countSlider.addEventListener("touchmove", stopTouchSwipe, {
+        passive: true,
       });
     }
 

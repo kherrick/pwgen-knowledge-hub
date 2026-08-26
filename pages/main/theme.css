@@ -551,6 +551,17 @@ tr:nth-child(even) {
   --mdc-theme-on-primary: var(--shadow-claw-accent-primary);
 }
 
+mwc-slider {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+[data-no-swipe="true"],
+[data-prevent-nav="true"] {
+  touch-action: none;
+}
+
 mwc-formfield {
   --mdc-theme-text-primary-on-background: var(--shadow-claw-text-secondary);
 }
