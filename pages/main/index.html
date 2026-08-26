@@ -101,6 +101,7 @@ slug: "pwgen"
       >
         <mwc-formfield label="🔒 Secure (-s)">
           <mwc-checkbox
+            id="pw-flag-s"
             class="pwgen-flag-check"
             value="s"
             checked
@@ -108,24 +109,75 @@ slug: "pwgen"
         </mwc-formfield>
         <mwc-formfield label="🔣 Symbols (-y)">
           <mwc-checkbox
+            id="pw-flag-y"
             class="pwgen-flag-check"
             value="y"
             checked
           ></mwc-checkbox>
         </mwc-formfield>
+        <mwc-formfield label="🔤 Capitalize (-c)">
+          <mwc-checkbox
+            id="pw-flag-c"
+            class="pwgen-flag-check"
+            value="c"
+            checked
+          ></mwc-checkbox>
+        </mwc-formfield>
+        <mwc-formfield label="🔢 Numerals (-n)">
+          <mwc-checkbox
+            id="pw-flag-n"
+            class="pwgen-flag-check"
+            value="n"
+            checked
+          ></mwc-checkbox>
+        </mwc-formfield>
         <mwc-formfield label="🚫 No Numbers (-0)">
-          <mwc-checkbox class="pwgen-flag-check" value="0"></mwc-checkbox>
+          <mwc-checkbox
+            id="pw-flag-0"
+            class="pwgen-flag-check"
+            value="0"
+          ></mwc-checkbox>
         </mwc-formfield>
         <mwc-formfield label="🚫 No Capitals (-A)">
-          <mwc-checkbox class="pwgen-flag-check" value="A"></mwc-checkbox>
+          <mwc-checkbox
+            id="pw-flag-A"
+            class="pwgen-flag-check"
+            value="A"
+          ></mwc-checkbox>
         </mwc-formfield>
         <mwc-formfield label="👁️ No Ambiguous (-B)">
-          <mwc-checkbox class="pwgen-flag-check" value="B"></mwc-checkbox>
+          <mwc-checkbox
+            id="pw-flag-B"
+            class="pwgen-flag-check"
+            value="B"
+          ></mwc-checkbox>
         </mwc-formfield>
         <mwc-formfield label="🙊 No Vowels (-v)">
-          <mwc-checkbox class="pwgen-flag-check" value="v"></mwc-checkbox>
+          <mwc-checkbox
+            id="pw-flag-v"
+            class="pwgen-flag-check"
+            value="v"
+          ></mwc-checkbox>
         </mwc-formfield>
       </div>
+    </div>
+
+    <div
+      class="pwgen-control-group"
+      style="margin-top: 1rem"
+      data-no-swipe="true"
+      data-prevent-nav="true"
+    >
+      <label for="pw-remove-chars">Remove Characters (-r)</label>
+      <mwc-textfield
+        id="pw-remove-chars"
+        label="Exclude characters from generation"
+        placeholder="e.g. 0O1l!@"
+        helper="Characters specified here will be removed (-r)"
+        outlined
+        data-no-swipe="true"
+        data-prevent-nav="true"
+      ></mwc-textfield>
     </div>
 
     <div class="pwgen-btn-group">

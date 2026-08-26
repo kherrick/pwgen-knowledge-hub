@@ -202,9 +202,10 @@
     try {
       const pwgenFn = await getPwgenModule();
       if (pwgenFn) {
-        const args = targetFlags
-          ? [targetFlags, targetLength, targetCount]
-          : [targetLength, targetCount];
+        const flagTokens = targetFlags
+          ? targetFlags.split(/\s+/).filter(Boolean)
+          : [];
+        const args = [...flagTokens, targetLength, targetCount];
 
         const generatedOutput = await new Promise((resolve) => {
           let output = "";
@@ -543,28 +544,85 @@
       });
     }
 
-    // Wire checkboxes for flags
+    // Wire checkboxes & remove-chars input for flags
     const flagCheckboxes = document.querySelectorAll(".pwgen-flag-check");
-    function updateFlagsFromCheckboxes() {
-      let flags = "-";
+    const removeCharsInput = document.getElementById("pw-remove-chars");
+    const chkC = document.getElementById("pw-flag-c");
+    const chkA = document.getElementById("pw-flag-A");
+    const chkN = document.getElementById("pw-flag-n");
+    const chk0 = document.getElementById("pw-flag-0");
+
+    function updateFlagsFromControls(e) {
+      if (e && e.target) {
+        const targetId = e.target.id;
+        if (targetId === "pw-flag-c" && e.target.checked && chkA) {
+          chkA.checked = false;
+        } else if (targetId === "pw-flag-A" && e.target.checked && chkC) {
+          chkC.checked = false;
+        } else if (targetId === "pw-flag-n" && e.target.checked && chk0) {
+          chk0.checked = false;
+        } else if (targetId === "pw-flag-0" && e.target.checked && chkN) {
+          chkN.checked = false;
+        }
+      }
+
+      let flagChars = "";
+
       flagCheckboxes.forEach((chk) => {
-        const isChecked = Boolean(chk.checked || chk.hasAttribute("checked"));
+        const isChecked = Boolean(chk.checked);
         const val = chk.value || chk.getAttribute("value") || "";
-        if (isChecked && val) flags += val;
+
+        // If Capitalize (-c) is unchecked and No Capitals (-A) is not checked,
+        // include 'A' to disable capitals in pwgen
+        if (chk.id === "pw-flag-c" && !isChecked && chkA && !chkA.checked) {
+          if (!flagChars.includes("A")) flagChars += "A";
+          return;
+        }
+
+        // If Numerals (-n) is unchecked and No Numbers (-0) is not checked,
+        // include '0' to disable numerals in pwgen
+        if (chk.id === "pw-flag-n" && !isChecked && chk0 && !chk0.checked) {
+          if (!flagChars.includes("0")) flagChars += "0";
+          return;
+        }
+
+        if (isChecked && val) {
+          if (!flagChars.includes(val)) flagChars += val;
+        }
       });
-      const newFlags = flags !== "-" ? flags : "";
+
+      let flagStr = flagChars ? "-" + flagChars : "";
+
+      // Format -r<chars> attached without spaces so getopt handles it as a single token in XPwgen.js
+      if (removeCharsInput) {
+        const removeVal = (
+          removeCharsInput.value ??
+          removeCharsInput.getAttribute("value") ??
+          ""
+        ).trim();
+        if (removeVal) {
+          flagStr += `r${removeVal}`;
+        }
+      }
+
       const activeXpwgen = document.querySelector("x-pwgen") || xpwgen;
       if (activeXpwgen) {
-        activeXpwgen.setAttribute("flags", newFlags);
-        activeXpwgen.flags = newFlags;
+        activeXpwgen.setAttribute("flags", flagStr);
+        activeXpwgen.flags = flagStr;
       }
     }
 
     flagCheckboxes.forEach((chk) => {
-      chk.addEventListener("change", updateFlagsFromCheckboxes);
-      chk.addEventListener("input", updateFlagsFromCheckboxes);
-      chk.addEventListener("click", updateFlagsFromCheckboxes);
+      chk.addEventListener("change", updateFlagsFromControls);
+      chk.addEventListener("input", updateFlagsFromControls);
+      chk.addEventListener("click", updateFlagsFromControls);
     });
+
+    if (removeCharsInput) {
+      removeCharsInput.addEventListener("input", updateFlagsFromControls);
+      removeCharsInput.addEventListener("change", updateFlagsFromControls);
+      removeCharsInput.addEventListener("keyup", updateFlagsFromControls);
+    }
 
     // Wire Generate Button
     const generateBtn = document.getElementById("pwgen-generate-btn");
@@ -638,5 +696,6 @@
     customElements.whenDefined("x-pwgen").then(wireInteractiveControls);
     customElements.whenDefined("mwc-slider").then(wireInteractiveControls);
     customElements.whenDefined("mwc-checkbox").then(wireInteractiveControls);
+    customElements.whenDefined("mwc-textfield").then(wireInteractiveControls);
   }
 })();

@@ -565,3 +565,17 @@ mwc-slider {
 mwc-formfield {
   --mdc-theme-text-primary-on-background: var(--shadow-claw-text-secondary);
 }
+
+mwc-textfield {
+  width: 100%;
+  --mdc-theme-primary: var(--shadow-claw-accent-primary);
+  --mdc-theme-text-primary-on-background: var(--shadow-claw-text-primary);
+  --mdc-theme-text-secondary-on-background: var(--shadow-claw-text-secondary);
+  --mdc-text-field-ink-color: var(--shadow-claw-text-primary);
+  --mdc-text-field-label-ink-color: var(--shadow-claw-text-secondary);
+  --mdc-text-field-outlined-idle-border-color: var(--shadow-claw-border-color);
+  --mdc-text-field-outlined-hover-border-color: var(
+    --shadow-claw-accent-primary
+  );
+  --mdc-text-field-fill-color: var(--shadow-claw-bg-tertiary);
+}
