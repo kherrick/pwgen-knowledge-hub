@@ -1,65 +1,44 @@
 ---
-title: "Main Technical Memory & Technical Reference"
+title: "Memory Index"
 created: "1970-01-01T00:00:00Z"
 updated: "1970-01-01T00:00:00Z"
 slug: "memory"
 ---
 
-## 🧠 pwgen Technical Memory & Architecture Reference
+## 🧠 pwgen Agent Memory Index
 
-Welcome to the **pwgen Premier Technical Memory & Guide**. This document captures the core WebAssembly compilation pipeline, CLI usage, custom element interfaces, entropy mathematical models, and agent skill execution protocols for `pwgen`.
-
----
-
-## 🏛️ Project & Ecosystem Resources
-
-- **Live Interactive Demo**: [kherrick.github.io/pwgen](https://kherrick.github.io/pwgen/)
-- **Web Components Package**: [x-pwgen-components](https://kherrick.github.io/x-pwgen-components/)
-- **Angular Playground App**: [kherrick.github.io/apps](https://kherrick.github.io/apps/playground/x-pwgen-container)
-- **GitHub Repository**: [github.com/kherrick/pwgen](https://github.com/kherrick/pwgen)
+Central routing directory for AI agents (including Prompt API built-in models) to locate enabled tools, skills, password features, and subsystem documentation.
 
 ---
 
-## 🛠️ How-To & Operational Guide
+## 🛠️ Enabled Tools & 🧭 Skills
 
-### 1. Generating Passwords & Explaining Security Flags
+Enabled via `site-config.json` (`enabledTools`). Worker bridge, declarative tool schemas, and agent skill pipelines are detailed in [/main/agent-skills-and-tools](/main/agent-skills-and-tools).
 
-- **Command-Line CLI**: Run `npx pwgen -sy 20 1` to generate secure, symbol-rich passwords.
-- **Phonetic vs. Secure Mode**: Default `pwgen` uses phonetic alternating consonant-vowel combinations (e.g. `xoh7aePh`). Passing `-s` / `--secure` enables true cryptographic randomness across full character spaces.
-- **Flag Translation**: Use `/pwgen-help` or the `pwgen_help` tool to break down flags (e.g., `-0` suppresses numbers, `-A` suppresses uppercase, `-v` excludes vowels, `-B` excludes ambiguous characters like `0/O`, `1/l`).
+### [Declarative Tools](/main/agent-skills-and-tools#plug-exposed-declarative-tools)
 
-### 2. Calculating Password Entropy
+- **`pwgen`**: Generates custom passwords using the WebAssembly `pwgen` engine
+- **`pwgen_help`**: Translates CLI flag strings into human-readable security breakdowns
+- **`pwgen_entropy`**: Calculates exact bits of mathematical entropy, pool size, and strength rating
 
-- **Entropy Formula**: $E = L \times \log_2(N)$ where $L$ is length and $N$ is pool size.
-- **Tool Usage**: Use `/pwgen-entropy` or the `pwgen_entropy` tool to evaluate string strength, character set complexity, and bits of entropy.
+### Agent Skills & Commands
 
-### 3. Agent Skills & Tool Execution Protocol
-
-- **Slash Commands**: `/pwgen`, `/pwgen-help`, and `/pwgen-entropy` execute declaratively via `executeToolChain` without calling LLM prompt models.
-- **Stateless BroadcastChannel Bridge**: The adapter (`pwgen-adapter.js`) listens on the `pwgen-commands` channel for `{ type: 'pwgen', requestId, params }` messages and responds over `pwgen-results` with generated passwords and live output updates.
-
-### 4. Custom Web Component (`<x-pwgen>`)
-
-- Import `https://kherrick.github.io/pwgen/dist/lib/esm/component/XPwgen.js`.
-- Use tag `<x-pwgen flags="-sy" length="20" number="1"></x-pwgen>` in HTML, React, Angular, or Vue.
-- Listen to `x-pwgen-handle-password` custom event (`event.detail.msg`) for password strings.
+- **`/pwgen`**: Direct password generation workflow — See [/main/agent-skills-and-tools](/main/agent-skills-and-tools#slash-command-matrix)
+- **`/pwgen-help`**: Flag breakdown & security advice translator — See [/main/agent-skills-and-tools](/main/agent-skills-and-tools#slash-command-matrix)
+- **`/pwgen-entropy`**: Password strength & entropy calculation — See [/main/agent-skills-and-tools](/main/agent-skills-and-tools#slash-command-matrix)
 
 ---
 
-## ⚡ Key Technical Specifications
+## 📚 Complete Documentation Index
 
-### WASM Compilation Target Matrix
-
-- **C Source Engine**: `src/pwgen/` (`pwgen.c`, `pw_phonemes.c`, `pw_rand.c`, `randnum.c`, `sha1.c`, `sha1num.c`).
-- **Compiler**: Emscripten (Dockerized `trzeci/emscripten:sdk-incoming-64bit`).
-- **Browser Distribution**: `dist/lib/esm/pwgen.js` (Zero-fetch Base64 inlined `.wasm` data URI).
-- **Node Distribution**: `dist/lib/pwgen.js` (CommonJS loader) + `dist/lib/pwgen.wasm`.
-
-### Declarative Agent Tools
-
-1. `pwgen`: Accepts `flags`, `length`, `count`. Generates passwords in worker/adapter thread.
-2. `pwgen_help`: Accepts `flags` string, outputs flag descriptions and security advice.
-3. `pwgen_entropy`: Accepts `password` string, outputs pool size, length, entropy bits, and strength rating.
+- **Chapter 1**: [Architecture, Origins & WebAssembly Evolution](/main/about)
+- **Chapter 2**: [CLI Usage, Options & Node.js Integration](/main/cli-and-flags)
+- **Chapter 3**: [C to WebAssembly Compilation Pipeline](/main/wasm-and-compilation)
+- **Chapter 4**: [Native Custom Element (<x-pwgen>) & Framework Integration](/main/custom-element-and-web-integration)
+- **Chapter 5**: [Historical Evolution: Web Bundles (.wbn) & WAPM Distribution](/main/historical-targets-wbn-wapm)
+- **Chapter 6**: [Password Security, Phonetics & Deterministic SHA1 Seeding](/main/security-entropy-and-sha1)
+- **Chapter 7**: [Web Platform Optimization & PWA Performance Engineering](/main/web-platform-and-performance)
+- **Chapter 8**: [Agent Skills, Declarative Tools & Slash Commands](/main/agent-skills-and-tools)
 
 ---
 

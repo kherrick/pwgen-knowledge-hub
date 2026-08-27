@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "shadowClawVersion": "2ca10c913e97c37bab795dd59352742ea6293d07",
+  "shadowClawVersion": "287742ee15369fecf6220af2d003e068f94b9471",
   "site": {
-    "title": "pwgen - Knowledge Hub",
+    "title": "pwgen Knowledge Hub",
     "description": "WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.",
     "themeColor": "#0f172a",
     "lang": "en-US"
   },
   "branding": {
-    "titleText": "pwgen - Knowledge Hub",
+    "titleText": "pwgen Knowledge Hub",
     "siteUrl": "https://kherrick.github.io/pwgen-knowledge-hub/",
     "repoUrl": "https://github.com/kherrick/pwgen-knowledge-hub",
     "repoLabel": "pwgen on GitHub",
@@ -16,6 +16,9 @@
     "appleTouchIconPath": "assets/icons/apple-touch-icon.png",
     "notFoundPath": "404.html",
     "logoSlotHtml": "<svg class=\"header-title-logo\" viewBox=\"0 0 32 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"32\" height=\"32\" rx=\"8\" fill=\"var(--shadow-claw-bg-tertiary, #1e293b)\" stroke=\"var(--shadow-claw-border-color, transparent)\" stroke-width=\"1.5\"></rect><path d=\"M11 14v-3a5 5 0 1 1 10 0v3\" stroke=\"var(--shadow-claw-accent-primary, #38bdf8)\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><rect x=\"7\" y=\"14\" width=\"18\" height=\"13\" rx=\"3\" fill=\"var(--shadow-claw-accent-primary, #38bdf8)\"></rect><circle cx=\"11.5\" cy=\"20.5\" r=\"1.5\" fill=\"var(--shadow-claw-bg-tertiary, #1e293b)\"></circle><circle cx=\"16\" cy=\"20.5\" r=\"1.5\" fill=\"var(--shadow-claw-bg-tertiary, #1e293b)\"></circle><circle cx=\"20.5\" cy=\"20.5\" r=\"1.5\" fill=\"var(--shadow-claw-bg-tertiary, #1e293b)\"></circle></svg>"
+  },
+  "pwa": {
+    "manifestPath": "manifest.json"
   },
   "sitemapPath": "sitemap.xml",
   "assets": ["assets"],
@@ -30,7 +33,6 @@
     "sortOrder": "asc",
     "defaultPinnedPage": "/pages/main/index.html"
   },
-  "enabledTools": ["pwgen", "pwgen_help", "pwgen_entropy"],
   "theme": {
     "stylesheet": "pages/main/theme.css"
   },
@@ -89,9 +91,8 @@
     ]
   },
   "settings": {
-    "assistantName": "pwgen"
+    "assistantName": "pwgen",
+    "defaultToolsProfile": "none"
   },
-  "pwa": {
-    "manifestPath": "manifest.json"
-  }
+  "enabledTools": ["pwgen", "pwgen_help", "pwgen_entropy"]
 }

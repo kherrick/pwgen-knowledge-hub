@@ -1,5 +1,5 @@
 {
-  "name": "pwgen - Knowledge Hub",
+  "name": "pwgen Knowledge Hub",
   "short_name": "pwgen 🔐",
   "description": "WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.",
   "start_url": ".",

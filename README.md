@@ -1,4 +1,4 @@
-# pwgen - Knowledge Hub
+# pwgen Knowledge Hub
 
 > WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.
 
