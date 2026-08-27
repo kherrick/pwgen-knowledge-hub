@@ -34,7 +34,7 @@ Enabled via `site-config.json` (`enabledTools`). Worker bridge, declarative tool
 - **Chapter 1**: [Architecture, Origins & WebAssembly Evolution](/main/about)
 - **Chapter 2**: [CLI Usage, Options & Node.js Integration](/main/cli-and-flags)
 - **Chapter 3**: [C to WebAssembly Compilation Pipeline](/main/wasm-and-compilation)
-- **Chapter 4**: [Native Custom Element (<x-pwgen>) & Framework Integration](/main/custom-element-and-web-integration)
+- **Chapter 4**: [Native Custom Element (`<x-pwgen>`) & Framework Integration](/main/custom-element-and-web-integration)
 - **Chapter 5**: [Historical Evolution: Web Bundles (.wbn) & WAPM Distribution](/main/historical-targets-wbn-wapm)
 - **Chapter 6**: [Password Security, Phonetics & Deterministic SHA1 Seeding](/main/security-entropy-and-sha1)
 - **Chapter 7**: [Web Platform Optimization & PWA Performance Engineering](/main/web-platform-and-performance)
