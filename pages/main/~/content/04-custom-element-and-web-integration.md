@@ -1,5 +1,5 @@
 ---
-title: "Chapter 4: Native Custom Element (<x-pwgen>) & Framework Integration"
+title: "Chapter 4: Native Custom Element (`<x-pwgen>`) & Framework Integration"
 created: "1970-01-01T00:00:00Z"
 updated: "1970-01-01T00:00:00Z"
 slug: "custom-element-and-web-integration"
