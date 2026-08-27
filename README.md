@@ -58,17 +58,17 @@ Embed zero-dependency password generation directly in HTML:
 
 ## 📚 Knowledge Hub Chapters
 
-| Chapter                                                   | Title                                            | Description                                                                                   |
-| :-------------------------------------------------------- | :----------------------------------------------- | :-------------------------------------------------------------------------------------------- |
-| **[Chapter 1](/main/about)**                              | Architecture, Origins & WASM Evolution           | History of Theodore Ts'o's C utility and Karl Herrick's WASM port.                            |
-| **[Chapter 2](/main/cli-and-flags)**                      | CLI Usage, Options & Node.js Integration         | CLI flags reference (`-s`, `-y`, `-0`, `-A`, `-B`, `-v`, `-r`, `-H`) and Node CJS API.        |
-| **[Chapter 3](/main/wasm-and-compilation)**               | C to WASM Compilation Pipeline                   | Dockerized Emscripten (`emcc`) build scripts & single-file Base64 WASM inlining.              |
-| **[Chapter 4](/main/custom-element-and-web-integration)** | Native Custom Element (`<x-pwgen>`) & Frameworks | Shadow DOM implementation, event handling, and React/Angular/Vue integration.                 |
-| **[Chapter 5](/main/historical-targets-wbn-wapm)**        | Historical Evolution: `.wbn` & WAPM              | Exploring Chrome Web Bundles (`.wbn`) and Wasmer WAPM distribution history.                   |
-| **[Chapter 6](/main/security-entropy-and-sha1)**          | Password Security, Phonetics & SHA1 Seeding      | Phonetic readability vs. pure random entropy ($E = L \times \log_2 N$) and SHA1 file hashing. |
-| **[Chapter 7](/main/web-platform-and-performance)**       | Web Platform & PWA Performance                   | Workbox Service Worker, sub-millisecond WASM instantiation benchmarks, and PWA setup.         |
-| **[Chapter 8](/main/agent-skills-and-tools)**             | Agent Skills, Declarative Tools & WebMCP         | Driving `pwgen` parameters from AI agent chat and WebMCP tools.                               |
-| **[Memory](/main/memory)**                                | Main Technical Memory Reference                  | DeepWiki architecture matrix and component index.                                             |
+| Chapter                                                                                                 | Title                                            | Description                                                                                   |
+| :------------------------------------------------------------------------------------------------------ | :----------------------------------------------- | :-------------------------------------------------------------------------------------------- |
+| **[Chapter 1](https://kherrick.github.io/pwgen-knowledge-hub/main/about)**                              | Architecture, Origins & WASM Evolution           | History of Theodore Ts'o's C utility and Karl Herrick's WASM port.                            |
+| **[Chapter 2](https://kherrick.github.io/pwgen-knowledge-hub/main/cli-and-flags)**                      | CLI Usage, Options & Node.js Integration         | CLI flags reference (`-s`, `-y`, `-0`, `-A`, `-B`, `-v`, `-r`, `-H`) and Node CJS API.        |
+| **[Chapter 3](https://kherrick.github.io/pwgen-knowledge-hub/main/wasm-and-compilation)**               | C to WASM Compilation Pipeline                   | Dockerized Emscripten (`emcc`) build scripts & single-file Base64 WASM inlining.              |
+| **[Chapter 4](https://kherrick.github.io/pwgen-knowledge-hub/main/custom-element-and-web-integration)** | Native Custom Element (`<x-pwgen>`) & Frameworks | Shadow DOM implementation, event handling, and React/Angular/Vue integration.                 |
+| **[Chapter 5](https://kherrick.github.io/pwgen-knowledge-hub/main/historical-targets-wbn-wapm)**        | Historical Evolution: `.wbn` & WAPM              | Exploring Chrome Web Bundles (`.wbn`) and Wasmer WAPM distribution history.                   |
+| **[Chapter 6](https://kherrick.github.io/pwgen-knowledge-hub/main/security-entropy-and-sha1)**          | Password Security, Phonetics & SHA1 Seeding      | Phonetic readability vs. pure random entropy ($E = L \times \log_2 N$) and SHA1 file hashing. |
+| **[Chapter 7](https://kherrick.github.io/pwgen-knowledge-hub/main/web-platform-and-performance)**       | Web Platform & PWA Performance                   | Workbox Service Worker, sub-millisecond WASM instantiation benchmarks, and PWA setup.         |
+| **[Chapter 8](https://kherrick.github.io/pwgen-knowledge-hub/main/agent-skills-and-tools)**             | Agent Skills, Declarative Tools & WebMCP         | Driving `pwgen` parameters from AI agent chat and WebMCP tools.                               |
+| **[Memory](https://kherrick.github.io/pwgen-knowledge-hub/main/memory)**                                | Main Technical Memory Reference                  | DeepWiki architecture matrix and component index.                                             |
 
 ---
 
