@@ -23,12 +23,10 @@ This repository details:
 
 ### 1. Interactive Web Demo & Knowledge Hub
 
-View the live interactive demo and complete documentation:
+View the live interactive demo and complete documentation on GitHub Pages:
 
-```bash
-npm start
-# or serve with any static HTTP server pointing to pages/main/index.html
-```
+- [pwgen](https://github.com/kherrick/pwgen)
+- [pwgen Knowledge Hub](https://kherrick.github.io/pwgen-knowledge-hub/)
 
 ### 2. Command-Line Usage (npx / npm)
 
