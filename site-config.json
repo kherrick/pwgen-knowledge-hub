@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "shadowClawVersion": "d3b5b17d6fae0b419abf867f77e8fba2477b6139",
+  "shadowClawVersion": "014b67bde7e42d5269aebd8d18c1fe30798ffbaa",
   "site": {
     "title": "pwgen Knowledge Hub",
     "description": "WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.",
