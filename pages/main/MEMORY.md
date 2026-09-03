@@ -13,7 +13,7 @@ Central routing directory for AI agents (including Prompt API built-in models) t
 
 ## 🛠️ Enabled Tools & 🧭 Skills
 
-Enabled via `site-config.json` (`enabledTools`). Worker bridge, declarative tool schemas, and agent skill pipelines are detailed in [/main/agent-skills-and-tools](/main/agent-skills-and-tools).
+Enabled via `shadow-claw.config.json` (`enabledTools`). Worker bridge, declarative tool schemas, and agent skill pipelines are detailed in [/main/agent-skills-and-tools](/main/agent-skills-and-tools).
 
 ### [Declarative Tools](/main/agent-skills-and-tools#plug-exposed-declarative-tools)
 

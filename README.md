@@ -72,7 +72,7 @@ Embed zero-dependency password generation directly in HTML:
 
 ## 🤖 Declarative Agent Tools & WebMCP
 
-`pwgen-knowledge-hub` exposes three declarative tools registered in `site-config.json`:
+`pwgen-knowledge-hub` exposes three declarative tools registered in `shadow-claw.config.json`:
 
 1. **`pwgen`**: Generates custom passwords via WASM engine. Accepts `flags`, `length`, and `count`.
 2. **`pwgen_help`**: Provides human-readable breakdowns of CLI options.

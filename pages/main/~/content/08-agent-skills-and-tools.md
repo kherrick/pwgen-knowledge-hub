@@ -11,7 +11,7 @@ Learn how ShadowClaw exposes `pwgen` capabilities to chat slash commands, declar
 
 ### 🔌 Exposed Declarative Tools
 
-The `pwgen-knowledge-hub` registers three declarative tools in `site-config.json` under `enabledTools` (`.agents/tools/main/`):
+The `pwgen-knowledge-hub` registers three declarative tools in `shadow-claw.config.json` under `enabledTools` (`.agents/tools/main/`):
 
 #### 1. `pwgen`
 
