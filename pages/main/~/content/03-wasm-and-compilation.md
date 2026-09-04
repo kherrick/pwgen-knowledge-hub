@@ -68,6 +68,7 @@ npx terser $WASM_LOADER -o $WASM_LOADER
 - **Single File Distribution:** Users only need to import one JavaScript file (e.g. `import 'unpkg.com/pwgen'`).
 - **No MIME Type Issues:** Prevents server configuration errors related to missing `application/wasm` Content-Type headers.
 - **Offline Ready:** Perfect for Web Components and PWAs where bundling external assets can be complex.
+- **Instant Headless Execution:** Enables portable agent tool scripts (`pwgen.js`) to run in workers and headless runners without network fetches.
 
 ---
 

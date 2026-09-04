@@ -40,6 +40,7 @@ Exposes unified interfaces for developers:
 - **Node.js Programmatic API:** CommonJS module (`require('pwgen')`).
 - **ES Module Import:** Standard ESM (`import pwgen from 'pwgen'`).
 - **Native Custom Web Element:** `<x-pwgen>` component built with Shadow DOM.
+- **AI Agent & Headless Discovery:** Decoupled ESM tool engine (`pwgen.js`), declarative tool schemas, and HTTP discovery via `/.well-known/agent-skills/index.json`.
 
 ### 💡 Why WebAssembly for Password Generation?
 

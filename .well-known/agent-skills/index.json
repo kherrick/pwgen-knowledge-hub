@@ -1,0 +1,132 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "name": "pwgen Knowledge Hub",
+  "description": "WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.",
+  "skills": [
+    {
+      "name": "pwgen-entropy",
+      "type": "skill-md",
+      "description": "Calculate information entropy (bits) and security rating for any target password.",
+      "url": "../../.agents/skills/main/pwgen-entropy/SKILL.md",
+      "digest": "sha256:cf20ceb1e1ecfc8c7808b4f2fc8bdb0f7cd1b1d931909e4f65f3bace42e1f96d",
+      "tools": [
+        {
+          "name": "pwgen_entropy",
+          "url": "../../.agents/tools/main/pwgen_entropy.json",
+          "digest": "sha256:84d5f549fd2f21687c6031718282a94c55ac33d0a10b86513396a76fe0decac2"
+        }
+      ],
+      "scripts": [
+        {
+          "name": "pwgen",
+          "url": "../../.agents/scripts/main/pwgen.js",
+          "digest": "sha256:c213bd6499ad7fd59f6bf07aee42e199f5862d7591d9eccd8414c31184fa4cd5"
+        }
+      ]
+    },
+    {
+      "name": "pwgen-help",
+      "type": "skill-md",
+      "description": "Analyze and explain pwgen command-line flags and security options.",
+      "url": "../../.agents/skills/main/pwgen-help/SKILL.md",
+      "digest": "sha256:9a6f3e89f9fd1e3df5298764581b5a7e17d242517ce102e3a7ba638992764aee",
+      "tools": [
+        {
+          "name": "pwgen_help",
+          "url": "../../.agents/tools/main/pwgen_help.json",
+          "digest": "sha256:8fa6b4eb67b46e2baebe10a714601d7e17f50681e9659f57f8f95ec200cfe4cc"
+        }
+      ],
+      "scripts": [
+        {
+          "name": "pwgen",
+          "url": "../../.agents/scripts/main/pwgen.js",
+          "digest": "sha256:c213bd6499ad7fd59f6bf07aee42e199f5862d7591d9eccd8414c31184fa4cd5"
+        }
+      ]
+    },
+    {
+      "name": "pwgen",
+      "type": "skill-md",
+      "description": "Generate custom secure or phonetic passwords using the WASM pwgen engine with configurable flags, length, and count.",
+      "url": "../../.agents/skills/main/pwgen/SKILL.md",
+      "digest": "sha256:51b792f30646ea1eb8a6181ef91ba0815588778ba77657776e6dc3f81f46256f",
+      "tools": [
+        {
+          "name": "pwgen",
+          "url": "../../.agents/tools/main/pwgen.json",
+          "digest": "sha256:a8ba72fd4a0fd6b614085695ef85c392dc5fc7554f0631dcb735e19f6ed04ca6"
+        }
+      ],
+      "scripts": [
+        {
+          "name": "pwgen-adapter",
+          "url": "../../.agents/scripts/main/pwgen-adapter.js",
+          "digest": "sha256:d3ad4c7916469c3bb34a0593ebbf296dc0aa3b74e73ddff5e1104150cd688393"
+        },
+        {
+          "name": "pwgen-element",
+          "url": "../../.agents/scripts/main/pwgen-element.js",
+          "digest": "sha256:c0be324ec8f8f12459513edbc752b10bb3b77014941fbcf1b64d36a47a8b887c"
+        },
+        {
+          "name": "pwgen",
+          "url": "../../.agents/scripts/main/pwgen.js",
+          "digest": "sha256:c213bd6499ad7fd59f6bf07aee42e199f5862d7591d9eccd8414c31184fa4cd5"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "pwgen",
+      "description": "Generate custom secure or phonetic passwords using the WASM pwgen engine with configurable CLI flags, password length, and count.",
+      "url": "../../.agents/tools/main/pwgen.json",
+      "digest": "sha256:a8ba72fd4a0fd6b614085695ef85c392dc5fc7554f0631dcb735e19f6ed04ca6"
+    },
+    {
+      "name": "pwgen_entropy",
+      "description": "Calculate exact mathematical bits of entropy, character pool size, and security rating for a given password.",
+      "url": "../../.agents/tools/main/pwgen_entropy.json",
+      "digest": "sha256:84d5f549fd2f21687c6031718282a94c55ac33d0a10b86513396a76fe0decac2"
+    },
+    {
+      "name": "pwgen_help",
+      "description": "Explain pwgen command-line flags and options in human-readable detail.",
+      "url": "../../.agents/tools/main/pwgen_help.json",
+      "digest": "sha256:8fa6b4eb67b46e2baebe10a714601d7e17f50681e9659f57f8f95ec200cfe4cc"
+    }
+  ],
+  "scripts": [
+    {
+      "name": "pwgen-adapter",
+      "description": "Portable ESM engine logic and tool execution handler for pwgen-adapter.",
+      "url": "../../.agents/scripts/main/pwgen-adapter.js",
+      "digest": "sha256:d3ad4c7916469c3bb34a0593ebbf296dc0aa3b74e73ddff5e1104150cd688393"
+    },
+    {
+      "name": "pwgen-element",
+      "description": "Portable ESM engine logic and tool execution handler for pwgen-element.",
+      "url": "../../.agents/scripts/main/pwgen-element.js",
+      "digest": "sha256:c0be324ec8f8f12459513edbc752b10bb3b77014941fbcf1b64d36a47a8b887c"
+    },
+    {
+      "name": "pwgen",
+      "description": "Portable ESM engine logic and tool execution handler for pwgen.",
+      "url": "../../.agents/scripts/main/pwgen.js",
+      "digest": "sha256:c213bd6499ad7fd59f6bf07aee42e199f5862d7591d9eccd8414c31184fa4cd5"
+    }
+  ],
+  "dependencies": {
+    "tools": [
+      "../../.agents/tools/main/pwgen.json",
+      "../../.agents/tools/main/pwgen_entropy.json",
+      "../../.agents/tools/main/pwgen_help.json"
+    ],
+    "scripts": [
+      "../../.agents/scripts/main/pwgen-adapter.js",
+      "../../.agents/scripts/main/pwgen-element.js",
+      "../../.agents/scripts/main/pwgen.js"
+    ]
+  }
+}

@@ -35,7 +35,7 @@ WAPM (WebAssembly Package Manager) was created by Wasmer as a registry for CLI t
 
 While `.wbn` and WAPM were valuable exploration steps, the web developer ecosystem ultimately favored standard NPM packaging combined with zero-fetch inline WebAssembly modules (Base64 ESM) and Native Custom Elements (`<x-pwgen>`).
 
-By streamlining distribution to standard npm modules, `pwgen` achieved broader compatibility across Node.js, Webpack, Vite, React, Angular, and modern browser environments without requiring vendor-specific package managers.
+By streamlining distribution to standard npm modules, `pwgen` achieved broader compatibility across Node.js, Webpack, Vite, React, Angular, and modern browser environments without requiring vendor-specific package managers. Today, autonomous discovery has similarly converged on open web standards: rather than bespoke packaging formats, tools and skills are published via standard well-known URIs (`/.well-known/agent-skills/index.json`).
 
 ---
 

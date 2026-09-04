@@ -7,25 +7,32 @@ slug: "memory"
 
 ## 🧠 pwgen Agent Memory Index
 
-Central routing directory for AI agents (including Prompt API built-in models) to locate enabled tools, skills, password features, and subsystem documentation.
+Central routing directory for AI agents to locate enabled tools, skills, password features, and subsystem documentation.
 
 ---
 
 ## 🛠️ Enabled Tools & 🧭 Skills
 
-Enabled via `shadow-claw.config.json` (`enabledTools`). Worker bridge, declarative tool schemas, and agent skill pipelines are detailed in [/main/agent-skills-and-tools](/main/agent-skills-and-tools).
+Enabled via `shadow-claw.config.json` (`enabledTools`) and discoverable headlessly over HTTP via `/.well-known/agent-skills/index.json`.
 
-### [Declarative Tools](/main/agent-skills-and-tools#plug-exposed-declarative-tools)
+### Declarative Tools
 
-- **`pwgen`**: Generates custom passwords using the WebAssembly `pwgen` engine
+- **`pwgen`**: Generates custom passwords using the WebAssembly engine
 - **`pwgen_help`**: Translates CLI flag strings into human-readable security breakdowns
 - **`pwgen_entropy`**: Calculates exact bits of mathematical entropy, pool size, and strength rating
 
-### Agent Skills & Commands
+### Agent Skills & Slash Commands
 
-- **`/pwgen`**: Direct password generation workflow — See [/main/agent-skills-and-tools](/main/agent-skills-and-tools#slash-command-matrix)
-- **`/pwgen-help`**: Flag breakdown & security advice translator — See [/main/agent-skills-and-tools](/main/agent-skills-and-tools#slash-command-matrix)
-- **`/pwgen-entropy`**: Password strength & entropy calculation — See [/main/agent-skills-and-tools](/main/agent-skills-and-tools#slash-command-matrix)
+- **`/pwgen`**: Direct password generation workflow
+- **`/pwgen-help`**: Flag breakdown & security advice translator
+- **`/pwgen-entropy`**: Password strength & entropy calculation
+
+### Architecture & Discovery
+
+- **Core Engine Script (`pwgen.js`)**: Decoupled, portable ESM containing pure computation and tool handlers.
+- **Custom Element Factory (`pwgen-element.js`)**: Portable `<x-pwgen>` component factory, attribute syncing, and BroadcastChannel bridge installer.
+- **Presentation Adapter (`.agents/scripts/main/pwgen-adapter.js`)**: Bridges on-page custom elements, UI controls, and BroadcastChannel events.
+- **Discovery Endpoint**: `/.well-known/agent-skills/index.json` provides RFC-compliant discovery with SHA-256 digests and dependency mapping.
 
 ---
 

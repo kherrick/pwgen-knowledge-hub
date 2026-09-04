@@ -43,6 +43,8 @@ Where:
 | 20 chars     | `-sy` (Random + Symbols) | 94              | ~131.1 bits    | Military Grade 🛡️ |
 | 32 chars     | `-sy` (Random + Symbols) | 94              | ~209.8 bits    | Unbreakable 🚀    |
 
+This mathematical entropy model is implemented directly in `pwgen.js` (`calculateEntropy`) and exposed headlessly to AI agents via the `/pwgen-entropy` slash command.
+
 ### 🔑 Deterministic Password Generation (`-H` / `--sha1`)
 
 One of `pwgen`'s most unique security capabilities is file-seeded deterministic password generation:

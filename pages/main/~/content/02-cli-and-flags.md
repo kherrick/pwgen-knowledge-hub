@@ -74,7 +74,7 @@ pwgen({
 
 ### How CLI Argument Forwarding Works (`src/lib/cli.ts`)
 
-When running via CLI, `src/lib/cli.ts` wraps the compiled WASM module and pre-processes arguments. It specifically inspects process arguments for file hash options (`-H` or `--sha1`), resolves target file paths using Node's `path` module, and forwards formatted argument arrays directly to the WebAssembly main entry point.
+When running via CLI, `src/lib/cli.ts` wraps the compiled WASM module and pre-processes arguments. It specifically inspects process arguments for file hash options (`-H` or `--sha1`), resolves target file paths using Node's `path` module, and forwards formatted argument arrays directly to the WebAssembly main entry point. For AI agents and headless tools, `pwgen.js` provides equivalent argument parsers (`parsePwgenParams`, `parseHelpParams`) that normalize CLI strings and JSON objects alike.
 
 ---
 

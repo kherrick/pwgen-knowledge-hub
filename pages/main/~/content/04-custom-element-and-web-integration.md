@@ -112,6 +112,10 @@ export class AppComponent implements OnInit {
 }
 ```
 
+### 🔌 Separation from Core Computation
+
+In modern knowledge hubs, presentation adapters (`.agents/scripts/main/pwgen-adapter.js`) sync `<x-pwgen>` attributes without embedding computation directly inside UI handlers, delegating password generation to decoupled engine modules (`pwgen.js`).
+
 ---
 
 [⬅️ Chapter 3: WASM & Compilation](/main/wasm-and-compilation) • [Chapter 5: Historical Targets (.wbn & WAPM) ➡️](/main/historical-targets-wbn-wapm)

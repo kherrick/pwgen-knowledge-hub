@@ -65,30 +65,30 @@ Embed zero-dependency password generation directly in HTML:
 | **[Chapter 5](https://kherrick.github.io/pwgen-knowledge-hub/main/historical-targets-wbn-wapm)**        | Historical Evolution: `.wbn` & WAPM              | Exploring Chrome Web Bundles (`.wbn`) and Wasmer WAPM distribution history.                   |
 | **[Chapter 6](https://kherrick.github.io/pwgen-knowledge-hub/main/security-entropy-and-sha1)**          | Password Security, Phonetics & SHA1 Seeding      | Phonetic readability vs. pure random entropy ($E = L \times \log_2 N$) and SHA1 file hashing. |
 | **[Chapter 7](https://kherrick.github.io/pwgen-knowledge-hub/main/web-platform-and-performance)**       | Web Platform & PWA Performance                   | Workbox Service Worker, sub-millisecond WASM instantiation benchmarks, and PWA setup.         |
-| **[Chapter 8](https://kherrick.github.io/pwgen-knowledge-hub/main/agent-skills-and-tools)**             | Agent Skills, Declarative Tools & WebMCP         | Driving `pwgen` parameters from AI agent chat and WebMCP tools.                               |
+| **[Chapter 8](https://kherrick.github.io/pwgen-knowledge-hub/main/agent-skills-and-tools)**             | Agent Skills, Tools & HTTP Discovery             | Decoupled ESM engine, slash commands, and RFC v0.2.0 well-known discovery index.              |
 | **[Memory](https://kherrick.github.io/pwgen-knowledge-hub/main/memory)**                                | Main Technical Memory Reference                  | DeepWiki architecture matrix and component index.                                             |
 
 ---
 
-## 🤖 Declarative Agent Tools & WebMCP
+## 🤖 Declarative Agent Tools & HTTP Discovery
 
-`pwgen-knowledge-hub` exposes three declarative tools registered in `shadow-claw.config.json`:
+`pwgen-knowledge-hub` exposes three declarative tools and slash commands (`/pwgen`, `/pwgen-help`, `/pwgen-entropy`):
 
 1. **`pwgen`**: Generates custom passwords via WASM engine. Accepts `flags`, `length`, and `count`.
 2. **`pwgen_help`**: Provides human-readable breakdowns of CLI options.
 3. **`pwgen_entropy`**: Calculates exact bits of mathematical entropy, pool size, and strength classification.
 
-### Inter-Process BroadcastChannel Bridge (`pwgen-adapter.js`)
+### Decoupled Engine & Presentation Architecture
 
-Agent tools communicate with the page runtime over the browser's `BroadcastChannel` API (`pwgen-commands` and `pwgen-results`).
+- **Core Engine Script (`pwgen.js`)**: Portable ES module containing pure computation, parameter parsing, and tool execution without DOM dependencies.
+- **Custom Element Factory (`pwgen-element.js`)**: Portable `<x-pwgen>` component factory, attribute syncing, and BroadcastChannel bridge installer.
+- **Host Presentation Adapter (`.agents/scripts/main/pwgen-adapter.js`)**: Manages `<x-pwgen>` DOM synchronization and UI controls.
+- **BroadcastChannel Bridge**: Inter-process communication over `pwgen-commands` and `pwgen-results` channels.
 
-```json
-{
-  "name": "pwgen",
-  "parameters": {
-    "flags": "-sy",
-    "length": 25,
-    "count": 2
-  }
-}
+### Standard Discovery Endpoint
+
+Exposed over HTTP per the [Agent Skills Discovery RFC](https://github.com/cloudflare/agent-skills-discovery-rfc):
+
+```
+/.well-known/agent-skills/index.json
 ```

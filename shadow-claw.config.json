@@ -69,7 +69,9 @@
       "x-pwgen"
     ],
     "allowedDomains": ["kherrick.github.io", "unpkg.com"],
-    "scripts": ["pages/main/pwgen-adapter.js"]
+    "scripts": [
+      { "src": ".agents/scripts/main/pwgen-adapter.js", "hasInit": true }
+    ]
   },
   "security": {
     "iframeSandbox": [
