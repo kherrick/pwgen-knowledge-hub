@@ -70,6 +70,7 @@
     ],
     "allowedDomains": ["kherrick.github.io", "unpkg.com"],
     "scripts": [
+      "https://kherrick.github.io/x-pwgen-components/dist/esm/index.js",
       { "src": ".agents/scripts/main/pwgen-adapter.js", "hasInit": true }
     ]
   },

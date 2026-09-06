@@ -62,12 +62,12 @@
         {
           "name": "pwgen-adapter",
           "url": "../../.agents/scripts/main/pwgen-adapter.js",
-          "digest": "sha256:d3ad4c7916469c3bb34a0593ebbf296dc0aa3b74e73ddff5e1104150cd688393"
+          "digest": "sha256:f2630eae295c03fceff5ee6eb850e81ee90e6990c16993dbc8fc7d49e42b1f12"
         },
         {
           "name": "pwgen-element",
           "url": "../../.agents/scripts/main/pwgen-element.js",
-          "digest": "sha256:c0be324ec8f8f12459513edbc752b10bb3b77014941fbcf1b64d36a47a8b887c"
+          "digest": "sha256:aa194c5fb6c92d1be8c8ce95905849c515c3d141821ccd9d4ff5deba33b91664"
         },
         {
           "name": "pwgen",
@@ -75,6 +75,13 @@
           "digest": "sha256:c213bd6499ad7fd59f6bf07aee42e199f5862d7591d9eccd8414c31184fa4cd5"
         }
       ]
+    },
+    {
+      "name": "skill-creator",
+      "type": "skill-md",
+      "description": "Create, edit, review, and validate ShadowClaw declarative skills and their supporting resources.",
+      "url": "../../.agents/skills/main/skill-creator/SKILL.md",
+      "digest": "sha256:e9876a79ab38c3a9acd0a990f2a26a578e1971abc2f3cd0eeda1988e6529f684"
     }
   ],
   "tools": [
@@ -102,13 +109,13 @@
       "name": "pwgen-adapter",
       "description": "Portable ESM engine logic and tool execution handler for pwgen-adapter.",
       "url": "../../.agents/scripts/main/pwgen-adapter.js",
-      "digest": "sha256:d3ad4c7916469c3bb34a0593ebbf296dc0aa3b74e73ddff5e1104150cd688393"
+      "digest": "sha256:f2630eae295c03fceff5ee6eb850e81ee90e6990c16993dbc8fc7d49e42b1f12"
     },
     {
       "name": "pwgen-element",
       "description": "Portable ESM engine logic and tool execution handler for pwgen-element.",
       "url": "../../.agents/scripts/main/pwgen-element.js",
-      "digest": "sha256:c0be324ec8f8f12459513edbc752b10bb3b77014941fbcf1b64d36a47a8b887c"
+      "digest": "sha256:aa194c5fb6c92d1be8c8ce95905849c515c3d141821ccd9d4ff5deba33b91664"
     },
     {
       "name": "pwgen",

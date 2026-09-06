@@ -326,13 +326,13 @@ export function wireInteractiveControls(
  * @param {boolean} [options.wireControls=true] - Whether to wire interactive DOM controls.
  * @returns {void}
  */
-export function init(options = {}) {
+export async function init(options = {}) {
   const root =
     options.root || (typeof document !== "undefined" ? document : null);
 
   // Pre-load library module & custom element definitions
   getPwgenModule();
-  ensureXPwgenDefined();
+  await ensureXPwgenDefined();
 
   // Install BroadcastChannel bridge for agent tool execution
   if (options.installBridge !== false) {

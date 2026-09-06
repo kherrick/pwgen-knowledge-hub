@@ -23,24 +23,29 @@ export const BUNDLE_URLS = [
 ];
 
 /**
- * Ensures the <x-pwgen> custom element is registered in the customElements registry.
+ * Ensures the <x-pwgen> and companion UI custom elements are registered in the customElements registry.
  *
  * @returns {Promise<boolean>} Resolves to true if defined.
  */
 export async function ensureXPwgenDefined() {
   if (typeof customElements === "undefined") return false;
-  if (customElements.get("x-pwgen")) return true;
 
-  for (const url of BUNDLE_URLS) {
-    try {
-      await import(url);
-    } catch (e) {}
-    if (customElements.get("x-pwgen")) break;
-  }
+  await Promise.all(
+    BUNDLE_URLS.map(async (url) => {
+      try {
+        await import(url);
+      } catch (e) {}
+    }),
+  );
 
-  if (!customElements.get("x-pwgen")) {
-    await customElements.whenDefined("x-pwgen").catch(() => {});
-  }
+  await Promise.all([
+    customElements.whenDefined("x-pwgen").catch(() => {}),
+    customElements.whenDefined("mwc-slider").catch(() => {}),
+    customElements.whenDefined("mwc-checkbox").catch(() => {}),
+    customElements.whenDefined("mwc-formfield").catch(() => {}),
+    customElements.whenDefined("mwc-button").catch(() => {}),
+  ]);
+
   return Boolean(customElements.get("x-pwgen"));
 }
 
