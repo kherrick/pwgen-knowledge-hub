@@ -13,7 +13,7 @@
         {
           "name": "pwgen_entropy",
           "url": "../../.agents/tools/main/pwgen_entropy.json",
-          "digest": "sha256:84d5f549fd2f21687c6031718282a94c55ac33d0a10b86513396a76fe0decac2"
+          "digest": "sha256:8150c84eeaec864e4ee4a3b1b62dc4f8a34e6aa04aa2c00f858167474d3b5d16"
         }
       ],
       "scripts": [
@@ -34,7 +34,7 @@
         {
           "name": "pwgen_help",
           "url": "../../.agents/tools/main/pwgen_help.json",
-          "digest": "sha256:8fa6b4eb67b46e2baebe10a714601d7e17f50681e9659f57f8f95ec200cfe4cc"
+          "digest": "sha256:ef481e6d92fadfdda2bc4af08b1cddc9ac232037fc92acd4011d03c1aa4a272f"
         }
       ],
       "scripts": [
@@ -55,7 +55,7 @@
         {
           "name": "pwgen",
           "url": "../../.agents/tools/main/pwgen.json",
-          "digest": "sha256:a8ba72fd4a0fd6b614085695ef85c392dc5fc7554f0631dcb735e19f6ed04ca6"
+          "digest": "sha256:a3869da6e9d0c74a944f86c9c956ed457cc608c9fdbdd12f71d1965166ae7e84"
         }
       ],
       "scripts": [
@@ -81,27 +81,27 @@
       "type": "skill-md",
       "description": "Create, edit, review, and validate ShadowClaw declarative skills and their supporting resources.",
       "url": "../../.agents/skills/main/skill-creator/SKILL.md",
-      "digest": "sha256:e9876a79ab38c3a9acd0a990f2a26a578e1971abc2f3cd0eeda1988e6529f684"
+      "digest": "sha256:21cdf3af5603edd566c6cca9a02c8ac2489b51ff0d984862fb09804c72bd553a"
     }
   ],
   "tools": [
     {
       "name": "pwgen",
-      "description": "Generate custom secure or phonetic passwords using the WASM pwgen engine with configurable CLI flags, password length, and count.",
+      "description": "Generate custom secure or phonetic passwords using the pwgen engine with configurable CLI flags, password length, and count.",
       "url": "../../.agents/tools/main/pwgen.json",
-      "digest": "sha256:a8ba72fd4a0fd6b614085695ef85c392dc5fc7554f0631dcb735e19f6ed04ca6"
+      "digest": "sha256:a3869da6e9d0c74a944f86c9c956ed457cc608c9fdbdd12f71d1965166ae7e84"
     },
     {
       "name": "pwgen_entropy",
       "description": "Calculate exact mathematical bits of entropy, character pool size, and security rating for a given password.",
       "url": "../../.agents/tools/main/pwgen_entropy.json",
-      "digest": "sha256:84d5f549fd2f21687c6031718282a94c55ac33d0a10b86513396a76fe0decac2"
+      "digest": "sha256:8150c84eeaec864e4ee4a3b1b62dc4f8a34e6aa04aa2c00f858167474d3b5d16"
     },
     {
       "name": "pwgen_help",
       "description": "Explain pwgen command-line flags and options in human-readable detail.",
       "url": "../../.agents/tools/main/pwgen_help.json",
-      "digest": "sha256:8fa6b4eb67b46e2baebe10a714601d7e17f50681e9659f57f8f95ec200cfe4cc"
+      "digest": "sha256:ef481e6d92fadfdda2bc4af08b1cddc9ac232037fc92acd4011d03c1aa4a272f"
     }
   ],
   "scripts": [

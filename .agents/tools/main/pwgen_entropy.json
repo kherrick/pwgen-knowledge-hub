@@ -6,13 +6,13 @@
     "properties": {
       "password": {
         "type": "string",
-        "description": "Password string to evaluate for entropy."
+        "description": "Password string to evaluate for entropy and strength."
       }
     },
     "required": ["password"]
   },
   "execution": {
     "type": "javascript",
-    "code": "const raw = typeof $PIPE_DATA !== 'undefined' && $PIPE_DATA ? (typeof $PIPE_DATA === 'string' ? ($PIPE_DATA.trim().startsWith('{') ? (() => { try { return JSON.parse($PIPE_DATA); } catch(e) { return $PIPE_DATA; } })() : $PIPE_DATA) : $PIPE_DATA) : {}; let pwd = ''; if (typeof raw === 'string') { pwd = raw.trim(); } else if (raw && typeof raw === 'object') { if (typeof raw.password === 'string') pwd = raw.password.trim(); else if (typeof raw.rawInput === 'string') pwd = raw.rawInput.trim(); else if (raw.rawInput && typeof raw.rawInput === 'object') { if (typeof raw.rawInput.password === 'string') pwd = raw.rawInput.password.trim(); else if (typeof raw.rawInput.rawInput === 'string') pwd = raw.rawInput.rawInput.trim(); } } const requestId = Math.random().toString(36).slice(2); const cmd = new BroadcastChannel('pwgen-commands'); const res = new BroadcastChannel('pwgen-results'); const result = await new Promise((resolve) => { const t = setTimeout(() => { res.close(); resolve('Timed out \\u2014 pwgen page may not be loaded yet.'); }, 12000); res.onmessage = (e) => { if (e.data && e.data.requestId === requestId) { clearTimeout(t); res.close(); resolve(e.data.result); } }; cmd.postMessage({ type: 'pwgen_entropy', requestId, params: { password: pwd, rawInput: raw } }); cmd.close(); }); return result;"
+    "code": "const input = typeof $PIPE_DATA !== 'undefined' && $PIPE_DATA ? (typeof $PIPE_DATA === 'string' ? JSON.parse($PIPE_DATA) : $PIPE_DATA) : (typeof data !== 'undefined' && data ? JSON.parse(data) : {}); let pwd = (input.password || input.rawInput || input.flags || '').trim(); if (!pwd) { return '⚠️ Error: Missing required parameter \"password\".\\n\\nPlease provide a target password to calculate entropy (e.g. /pwgen-entropy MyP@ssw0rd!2026).'; } let pool = 0; if (/[a-z]/.test(pwd)) pool += 26; if (/[A-Z]/.test(pwd)) pool += 26; if (/[0-9]/.test(pwd)) pool += 10; if (/[^a-zA-Z0-9]/.test(pwd)) pool += 32; if (!pool) pool = 26; const bits = Math.round(pwd.length * Math.log2(pool)); let rating = 'Weak ❌'; if (bits >= 128) rating = 'Military Grade 🛡️'; else if (bits >= 80) rating = 'Very Strong 💪'; else if (bits >= 60) rating = 'Strong 👍'; else if (bits >= 40) rating = 'Moderate ⚠️'; try { if (typeof BroadcastChannel !== 'undefined') { const bc = new BroadcastChannel('pwgen-commands'); bc.postMessage({ type: 'pwgen_entropy', params: { password: pwd } }); bc.close(); } } catch (e) {} return '📊 Password Entropy Analysis:\\n- Password: \"' + pwd + '\"\\n- Length: ' + pwd.length + '\\n- Character Set Pool: ' + pool + '\\n- Entropy: ' + bits + ' bits\\n- Rating: ' + rating;"
   }
 }
