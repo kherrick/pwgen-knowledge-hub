@@ -19,16 +19,46 @@ This repository details:
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Local Development)
 
-### 1. Interactive Web Demo & Knowledge Hub
+Run the pwgen Knowledge Hub locally using the `shadow-claw` CLI with zero installation:
+
+### 1. Launch Live Development Server
+
+Start the local server and automatically open the site in your default browser:
+
+```bash
+npx shadow-claw dev --open -y
+```
+
+- 🌐 Serves the interactive knowledge hub and live password generator on **`http://127.0.0.1:8888`**
+- `--open`: Automatically opens your default web browser on launch
+- `-y`: Accepts the default cache directory (`.cache`) without interactive prompts
+
+### 2. Common CLI Options
+
+```bash
+# Run on a custom port
+npx shadow-claw dev 3000 --open -y
+
+# Run headlessly without opening a browser
+npx shadow-claw dev -y
+
+# Build the static distribution into ./dist/public
+npx shadow-claw build
+
+# Serve pre-built static distribution
+npx shadow-claw serve
+```
+
+### 3. Interactive Web Demo & Knowledge Hub
 
 View the live interactive demo and complete documentation on GitHub Pages:
 
 - [pwgen](https://github.com/kherrick/pwgen)
 - [pwgen Knowledge Hub](https://kherrick.github.io/pwgen-knowledge-hub/)
 
-### 2. Command-Line Usage (npx / npm)
+### 4. Command-Line Usage (npx / npm)
 
 Generate passwords instantly on any terminal:
 
@@ -36,7 +66,7 @@ Generate passwords instantly on any terminal:
 npx pwgen -sy 20 1
 ```
 
-### 3. Native Web Component (`<x-pwgen>`)
+### 5. Native Web Component (`<x-pwgen>`)
 
 Embed zero-dependency password generation directly in HTML:
 
