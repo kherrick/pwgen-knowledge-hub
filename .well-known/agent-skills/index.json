@@ -75,13 +75,6 @@
           "digest": "sha256:c213bd6499ad7fd59f6bf07aee42e199f5862d7591d9eccd8414c31184fa4cd5"
         }
       ]
-    },
-    {
-      "name": "skill-creator",
-      "type": "skill-md",
-      "description": "Create, edit, review, and validate ShadowClaw declarative skills and their supporting resources.",
-      "url": "../../.agents/skills/main/skill-creator/SKILL.md",
-      "digest": "sha256:21cdf3af5603edd566c6cca9a02c8ac2489b51ff0d984862fb09804c72bd553a"
     }
   ],
   "tools": [
