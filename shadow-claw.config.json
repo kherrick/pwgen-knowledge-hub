@@ -19,7 +19,6 @@
   "pwa": {
     "manifestPath": "manifest.json"
   },
-  "sitemapPath": "sitemap.xml",
   "assets": ["assets"],
   "sidebar": {
     "pagesHidden": false,

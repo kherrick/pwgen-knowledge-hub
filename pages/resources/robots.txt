@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://kherrick.github.io/pwgen-knowledge-hub/sitemap.xml

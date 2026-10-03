@@ -2,10 +2,10 @@
 
 > WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.
 
+[![ShadowClaw Version](https://img.shields.io/badge/ShadowClaw-main)](https://github.com/kherrick/pwgen-knowledge-hub)
 [![WASM Engine](https://img.shields.io/badge/WASM-Emscripten-34d399)](https://kherrick.github.io/pwgen/)
 [![Custom Element](https://img.shields.io/badge/Web%20Component-%3Cx--pwgen%3E-c084fc)](https://unpkg.com/pwgen)
-[![ShadowClaw Version](https://img.shields.io/badge/ShadowClaw-main)](https://github.com/kherrick/pwgen-knowledge-hub)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/kherrick/pwgen-knowledge-hub)
+[![Ask DeepWiki](https://img.shields.io/badge/DeepWiki-kherrick%2fpwgen--garden--knowledge--hub-blue.svg)](https://deepwiki.com/kherrick/pwgen-knowledge-hub)
 
 ## 📌 Overview
 
