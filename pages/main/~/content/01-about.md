@@ -52,4 +52,4 @@ Compiling C to WASM offers critical advantages for security utilities:
 
 ---
 
-[⬅️ Main Overview](/main) • [Chapter 2: CLI Usage & Flags ➡️](/main/cli-and-flags)
+[⬅️ Main Overview](/main/) • [Chapter 2: CLI Usage & Flags ➡️](/main/cli-and-flags/)

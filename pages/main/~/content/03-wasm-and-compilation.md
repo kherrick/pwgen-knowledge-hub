@@ -72,4 +72,4 @@ npx terser $WASM_LOADER -o $WASM_LOADER
 
 ---
 
-[⬅️ Chapter 2: CLI Usage](/main/cli-and-flags) • [Chapter 4: Custom Elements ➡️](/main/custom-element-and-web-integration)
+[⬅️ Chapter 2: CLI Usage](/main/cli-and-flags/) • [Chapter 4: Custom Elements ➡️](/main/custom-element-and-web-integration/)

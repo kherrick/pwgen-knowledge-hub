@@ -66,4 +66,4 @@ Because `pwgen` compiles entirely into client-side WebAssembly, all password gen
 
 ---
 
-[⬅️ Chapter 5: Historical Targets](/main/historical-targets-wbn-wapm) • [Chapter 7: Web Platform & PWA ➡️](/main/web-platform-and-performance)
+[⬅️ Chapter 5: Historical Targets](/main/historical-targets-wbn-wapm/) • [Chapter 7: Web Platform & PWA ➡️](/main/web-platform-and-performance/)

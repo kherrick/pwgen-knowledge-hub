@@ -78,4 +78,4 @@ When running via CLI, `src/lib/cli.ts` wraps the compiled WASM module and pre-pr
 
 ---
 
-[⬅️ Chapter 1: Architecture](/main/about) • [Chapter 3: WASM & Compilation ➡️](/main/wasm-and-compilation)
+[⬅️ Chapter 1: Architecture](/main/about/) • [Chapter 3: WASM & Compilation ➡️](/main/wasm-and-compilation/)

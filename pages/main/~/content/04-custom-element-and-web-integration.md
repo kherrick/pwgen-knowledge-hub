@@ -118,4 +118,4 @@ In modern knowledge hubs, presentation adapters (`.agents/scripts/main/pwgen-ada
 
 ---
 
-[⬅️ Chapter 3: WASM & Compilation](/main/wasm-and-compilation) • [Chapter 5: Historical Targets (.wbn & WAPM) ➡️](/main/historical-targets-wbn-wapm)
+[⬅️ Chapter 3: WASM & Compilation](/main/wasm-and-compilation/) • [Chapter 5: Historical Targets (.wbn & WAPM) ➡️](/main/historical-targets-wbn-wapm/)

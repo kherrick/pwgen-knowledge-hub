@@ -185,4 +185,4 @@ To activate this bridge in a ShadowClaw site:
 
 ---
 
-[⬅️ Chapter 7: Web Platform & Performance](/main/web-platform-and-performance) • [Main Technical Memory ➡️](/main/memory)
+[⬅️ Chapter 7: Web Platform & Performance](/main/web-platform-and-performance/) • [Main Technical Memory ➡️](/main/memory/)

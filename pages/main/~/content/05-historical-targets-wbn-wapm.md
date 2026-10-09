@@ -39,4 +39,4 @@ By streamlining distribution to standard npm modules, `pwgen` achieved broader c
 
 ---
 
-[⬅️ Chapter 4: Custom Elements](/main/custom-element-and-web-integration) • [Chapter 6: Security & Entropy ➡️](/main/security-entropy-and-sha1)
+[⬅️ Chapter 4: Custom Elements](/main/custom-element-and-web-integration/) • [Chapter 6: Security & Entropy ➡️](/main/security-entropy-and-sha1/)

@@ -60,4 +60,4 @@ In the Knowledge Hub, `.agents/scripts/main/pwgen-adapter.js` acts as the presen
 
 ---
 
-[⬅️ Chapter 6: Security & Entropy](/main/security-entropy-and-sha1) • [Chapter 8: Agent Skills & Tools ➡️](/main/agent-skills-and-tools)
+[⬅️ Chapter 6: Security & Entropy](/main/security-entropy-and-sha1/) • [Chapter 8: Agent Skills & Tools ➡️](/main/agent-skills-and-tools/)
