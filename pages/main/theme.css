@@ -55,6 +55,10 @@
   --mdc-theme-on-surface: var(--shadow-claw-text-primary);
   --mdc-theme-text-primary-on-background: var(--shadow-claw-text-primary);
   --mdc-theme-text-secondary-on-background: #94a3b8;
+
+  /* Other */
+  --shadow-claw-logo-margin: 0;
+  --shadow-claw-logo-size: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
