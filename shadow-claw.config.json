@@ -29,7 +29,8 @@
   },
   "pages": {
     "sortOrder": "asc",
-    "defaultPinnedPage": "/pages/main/index.html"
+    "defaultPinnedPage": "/pages/main/index.html",
+    "iframe": true
   },
   "theme": {
     "stylesheet": "pages/main/theme.css"
