@@ -62,12 +62,12 @@
         {
           "name": "pwgen-adapter",
           "url": "../../.agents/scripts/main/pwgen-adapter.js",
-          "digest": "sha256:f2630eae295c03fceff5ee6eb850e81ee90e6990c16993dbc8fc7d49e42b1f12"
+          "digest": "sha256:14667c8bdb513faa5ca300030fdca7ea394c80e3adcd775f2754874981bc9a30"
         },
         {
           "name": "pwgen-element",
           "url": "../../.agents/scripts/main/pwgen-element.js",
-          "digest": "sha256:aa194c5fb6c92d1be8c8ce95905849c515c3d141821ccd9d4ff5deba33b91664"
+          "digest": "sha256:5d95177115e79d2b49b6e0ce545d9581fd3d7651a060f7541e88ed591be7f7c7"
         },
         {
           "name": "pwgen",
@@ -109,13 +109,13 @@
       "name": "pwgen-adapter",
       "description": "Portable ESM engine logic and tool execution handler for pwgen-adapter.",
       "url": "../../.agents/scripts/main/pwgen-adapter.js",
-      "digest": "sha256:f2630eae295c03fceff5ee6eb850e81ee90e6990c16993dbc8fc7d49e42b1f12"
+      "digest": "sha256:14667c8bdb513faa5ca300030fdca7ea394c80e3adcd775f2754874981bc9a30"
     },
     {
       "name": "pwgen-element",
       "description": "Portable ESM engine logic and tool execution handler for pwgen-element.",
       "url": "../../.agents/scripts/main/pwgen-element.js",
-      "digest": "sha256:aa194c5fb6c92d1be8c8ce95905849c515c3d141821ccd9d4ff5deba33b91664"
+      "digest": "sha256:5d95177115e79d2b49b6e0ce545d9581fd3d7651a060f7541e88ed591be7f7c7"
     },
     {
       "name": "pwgen",

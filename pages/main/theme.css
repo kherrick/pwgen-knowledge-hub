@@ -59,6 +59,7 @@
   /* Other */
   --shadow-claw-logo-margin: 0;
   --shadow-claw-logo-size: 1.5rem;
+  --shadow-claw-pages-viewer-max-width: 55rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -583,4 +584,8 @@ mwc-textfield {
     --shadow-claw-accent-primary
   );
   --mdc-text-field-fill-color: var(--shadow-claw-bg-tertiary);
+}
+
+.pages__viewer {
+  max-width: 55rem;
 }

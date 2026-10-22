@@ -156,6 +156,9 @@ export function installPwgenBridge(options = {}) {
   const resultChannelName = options.resultChannelName || CHANNELS.RESULTS;
 
   const commandChannel = new BroadcastChannel(commandChannelName);
+  if (typeof commandChannel.unref === "function") {
+    commandChannel.unref();
+  }
   commandChannel.onmessage = async (evt) => {
     const { type, requestId, params } = evt.data || {};
     if (!type || !requestId) return;

@@ -294,20 +294,58 @@ export function wireInteractiveControls(
         textToCopy = outputDisplay.innerText.trim();
       }
 
-      if (textToCopy && navigator.clipboard) {
+      if (!textToCopy) return;
+
+      let copied = false;
+      if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
         try {
           await navigator.clipboard.writeText(textToCopy);
-          const origText =
-            copyBtn.getAttribute("label") || copyBtn.label || copyBtn.innerText;
-          if ("label" in copyBtn) copyBtn.label = "✓ Copied!";
-          else copyBtn.innerText = "✓ Copied!";
-          setTimeout(() => {
-            if ("label" in copyBtn) copyBtn.label = origText;
-            else copyBtn.innerText = origText;
-          }, 2000);
+          copied = true;
         } catch (err) {
-          console.error("Clipboard copy failed:", err);
+          // Permissions Policy or sandbox focus may block clipboard API; fall back to execCommand
         }
+      }
+
+      if (!copied && typeof document !== "undefined") {
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = textToCopy;
+          ta.style.position = "fixed";
+          ta.style.top = "0";
+          ta.style.left = "0";
+          ta.style.width = "1px";
+          ta.style.height = "1px";
+          ta.style.padding = "0";
+          ta.style.border = "none";
+          ta.style.outline = "none";
+          ta.style.boxShadow = "none";
+          ta.style.background = "transparent";
+          ta.style.opacity = "0";
+          ta.setAttribute("readonly", "");
+          (document.body || root).appendChild(ta);
+          ta.focus();
+          ta.select();
+          copied = Boolean(document.execCommand("copy"));
+          ta.parentElement?.removeChild(ta);
+        } catch (err) {
+          console.error("Clipboard copy fallback failed:", err);
+        }
+      }
+
+      if (copied) {
+        const origText =
+          copyBtn.getAttribute("label") || copyBtn.label || copyBtn.innerText;
+        if ("label" in copyBtn) copyBtn.label = "✓ Copied!";
+        else copyBtn.innerText = "✓ Copied!";
+        const timer = setTimeout(() => {
+          if ("label" in copyBtn) copyBtn.label = origText;
+          else copyBtn.innerText = origText;
+        }, 2000);
+        if (typeof timer?.unref === "function") {
+          timer.unref();
+        }
+      } else {
+        console.error("Clipboard copy failed: unable to write to clipboard");
       }
     });
   }
@@ -320,15 +358,21 @@ export function wireInteractiveControls(
  *
  * Does NOT auto-run on import; must be invoked explicitly by the consumer.
  *
- * @param {object} [options]
+ * @param {object|Document|Element} [options]
  * @param {Document|Element} [options.root] - Container to search for controls (defaults to document).
  * @param {boolean} [options.installBridge=true] - Whether to install BroadcastChannel IPC bridge.
  * @param {boolean} [options.wireControls=true] - Whether to wire interactive DOM controls.
  * @returns {void}
  */
 export async function init(options = {}) {
-  const root =
-    options.root || (typeof document !== "undefined" ? document : null);
+  const isDomNode =
+    options &&
+    typeof options === "object" &&
+    (typeof options.querySelector === "function" ||
+      typeof options.getElementById === "function");
+  const root = isDomNode
+    ? options
+    : options?.root || (typeof document !== "undefined" ? document : null);
 
   // Pre-load library module & custom element definitions
   getPwgenModule();
