@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
 
 ### 🔌 Separation from Core Computation
 
-In modern knowledge hubs, presentation adapters (`.agents/scripts/main/pwgen-adapter.js`) sync `<x-pwgen>` attributes without embedding computation directly inside UI handlers, delegating password generation to decoupled engine modules (`pwgen.js`).
+In modern knowledge hubs, presentation adapters (`.agents/scripts/pwgen-adapter.js`) sync `<x-pwgen>` attributes without embedding computation directly inside UI handlers, delegating password generation to decoupled engine modules (`pwgen.js`).
 
 ---
 

@@ -51,7 +51,7 @@ Because the browser ESM build inlines the WebAssembly binary as Base64, the inst
 
 ### 🛠️ Responsive Custom Element Adapter Architecture
 
-In the Knowledge Hub, `.agents/scripts/main/pwgen-adapter.js` acts as the presentation adapter layer, importing core generation functions from the decoupled engine (`pwgen.js`) while managing responsive container sizing and event delegation for `<x-pwgen>`:
+In the Knowledge Hub, `.agents/scripts/pwgen-adapter.js` acts as the presentation adapter layer, importing core generation functions from the decoupled engine (`pwgen.js`) while managing responsive container sizing and event delegation for `<x-pwgen>`:
 
 - **Decoupled Engine Integration:** Imports pure computation headlessly from `pwgen.js` and forwards results.
 - **Shadow Boundary Event Forwarding:** Captures `x-pwgen-handle-password` custom events dispatched inside Shadow DOM and updates host UI elements.

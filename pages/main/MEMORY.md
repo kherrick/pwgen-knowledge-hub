@@ -31,7 +31,7 @@ Enabled via `shadow-claw.config.json` (`enabledTools`) and discoverable headless
 
 - **Core Engine Script (`pwgen.js`)**: Decoupled, portable ESM containing pure computation and tool handlers.
 - **Custom Element Factory (`pwgen-element.js`)**: Portable `<x-pwgen>` component factory, attribute syncing, and BroadcastChannel bridge installer.
-- **Presentation Adapter (`.agents/scripts/main/pwgen-adapter.js`)**: Bridges on-page custom elements, UI controls, and BroadcastChannel events.
+- **Presentation Adapter (`.agents/scripts/pwgen-adapter.js`)**: Bridges on-page custom elements, UI controls, and BroadcastChannel events.
 - **Discovery Endpoint**: `/.well-known/agent-skills/index.json` provides RFC-compliant discovery with SHA-256 digests and dependency mapping.
 
 ---

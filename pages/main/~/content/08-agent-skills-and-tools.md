@@ -16,8 +16,8 @@ Learn how ShadowClaw exposes `pwgen` capabilities to AI agents, slash commands, 
 To allow external agents and headless environments to run tools without browser DOM dependencies, `pwgen` separates core computation from UI presentation:
 
 - **Core Engine Script (`pwgen.js`)**: Pure ESM containing password generation, entropy math, flag parsing, and tool execution handlers. Zero DOM or browser dependencies.
-- **Custom Element & Bridge Factory (`.agents/scripts/main/pwgen-element.js`)**: Portable `<x-pwgen>` custom element factory, attribute syncing, and BroadcastChannel bridge installer.
-- **Presentation Adapter (`.agents/scripts/main/pwgen-adapter.js`)**: Handles on-page visual synchronization, `<x-pwgen>` component attributes, and user interactions (sliders, checkboxes, clipboard).
+- **Custom Element & Bridge Factory (`.agents/scripts/pwgen-element.js`)**: Portable `<x-pwgen>` custom element factory, attribute syncing, and BroadcastChannel bridge installer.
+- **Presentation Adapter (`.agents/scripts/pwgen-adapter.js`)**: Handles on-page visual synchronization, `<x-pwgen>` component attributes, and user interactions (sliders, checkboxes, clipboard).
 
 > [!NOTE]
 > **Headless-First by Design**: Graphical presentation is completely optional. All `pwgen` skills and tools run headlessly in AI agent tool runners, Web Workers, Node.js scripts, and CLI pipelines with zero DOM or HTML dependencies. The presentation adapter (`pwgen-adapter.js`) and `<x-pwgen>` custom element exist solely to provide an optional interactive visual GUI when embedded in web pages or dashboards.
@@ -175,9 +175,7 @@ To activate this bridge in a ShadowClaw site:
 ```json
 {
   "customElements": {
-    "scripts": [
-      { "src": ".agents/scripts/main/pwgen-adapter.js", "hasInit": true }
-    ]
+    "scripts": [{ "src": ".agents/scripts/pwgen-adapter.js", "hasInit": true }]
   },
   "enabledTools": ["pwgen", "pwgen_help", "pwgen_entropy"]
 }

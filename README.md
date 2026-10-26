@@ -113,7 +113,7 @@ Embed zero-dependency password generation directly in HTML:
 
 - **Core Engine Script (`pwgen.js`)**: Portable ES module containing pure computation, parameter parsing, and tool execution without DOM dependencies.
 - **Custom Element Factory (`pwgen-element.js`)**: Portable `<x-pwgen>` component factory, attribute syncing, and BroadcastChannel bridge installer.
-- **Host Presentation Adapter (`.agents/scripts/main/pwgen-adapter.js`)**: Manages `<x-pwgen>` DOM synchronization and UI controls.
+- **Host Presentation Adapter (`.agents/scripts/pwgen-adapter.js`)**: Manages `<x-pwgen>` DOM synchronization and UI controls.
 - **BroadcastChannel Bridge**: Inter-process communication over `pwgen-commands` and `pwgen-results` channels.
 
 ### Standard Discovery Endpoint

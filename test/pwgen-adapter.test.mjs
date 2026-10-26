@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   wireInteractiveControls,
   init,
-} from "../.agents/scripts/main/pwgen-adapter.js";
+} from "../.agents/scripts/pwgen-adapter.js";
 
 // Minimal DOM simulation for unit testing
 class FakeClassList {
