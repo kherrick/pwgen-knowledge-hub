@@ -33,7 +33,7 @@
     "iframe": true
   },
   "theme": {
-    "stylesheet": "pages/main/theme.css"
+    "stylesheet": "/pages/main/theme.css"
   },
   "customElements": {
     "allowedElements": [
