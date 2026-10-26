@@ -33,7 +33,7 @@
     "iframe": true
   },
   "theme": {
-    "stylesheet": "/pages/main/theme.css"
+    "stylesheet": "pages/main/theme.css"
   },
   "customElements": {
     "allowedElements": [
@@ -70,6 +70,7 @@
     ],
     "allowedDomains": ["kherrick.github.io", "unpkg.com"],
     "scripts": [
+      "https://kherrick.github.io/pwgen/dist/lib/esm/component/XPwgen.js",
       "https://kherrick.github.io/x-pwgen-components/dist/esm/index.js",
       { "src": ".agents/scripts/pwgen-adapter.js", "hasInit": true }
     ]
