@@ -1,9 +1,42 @@
 import test, { describe, it, beforeEach } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   wireInteractiveControls,
   init,
 } from "../.agents/scripts/pwgen-adapter.js";
+
+test("Declarative tools do not redeclare ShadowClaw's injected input", () => {
+  const toolsDir = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "../.agents/tools",
+  );
+
+  for (const filename of fs.readdirSync(toolsDir)) {
+    if (!filename.endsWith(".json")) continue;
+
+    const tool = JSON.parse(
+      fs.readFileSync(path.join(toolsDir, filename), "utf8"),
+    );
+    const code = tool.execution?.code;
+    if (typeof code !== "string") continue;
+
+    assert.doesNotMatch(
+      code,
+      /\b(?:const|let|var)\s+input\b/,
+      `${tool.name} must not declare input`,
+    );
+    assert.doesNotThrow(
+      () =>
+        new Function(
+          `return async (data, $PIPE_DATA) => { let input; ${code}\n};`,
+        ),
+      `${tool.name} must compile with the older ShadowClaw input binding`,
+    );
+  }
+});
 
 // Minimal DOM simulation for unit testing
 class FakeClassList {
