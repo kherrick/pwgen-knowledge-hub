@@ -12,15 +12,16 @@ Static knowledge hub for [pwgen](https://kherrick.github.io/pwgen/), the Unix pa
 - `pages/main/~/content/NN-*.md` — numbered chapters; the filename slug becomes the URL (`/main/<slug>`)
 - `pages/main/MEMORY.md`, `pages/main/RESET.md` — agent memory and reset prompt
 - `pages/main/theme.css` — site theme
-- `pages/resources/` — files copied to the site root (`robots.txt`, `llms.txt`, `AGENTS.md`, `README.md`, `manifest.json`, `404.html`, `assets/`)
+- `pages/resources/` — static resources copied to the site root (`robots.txt`, `llms.txt`, `manifest.json`, `404.html`, `assets/`)
 - `pages/resources/routes.json` — maps source files to pretty URLs and drives `sitemap.xml` generation
 - `shadow-claw.config.json` — site, branding, security, and enabled-tool settings (`pwgen`, `pwgen_help`, `pwgen_entropy`)
 - `.agents/` — skills, declarative tools, and scripts (including the `x-pwgen` adapter)
+- `AGENTS.md`, `README.md` — repository documentation copied to the site root during deployment
 
 ## Conventions
 
 - Add a chapter by creating the markdown file and adding a matching entry to `pages/resources/routes.json`; `sitemap.xml` is generated from it at build time. Do not hand-edit a sitemap.
-- Update `llms.txt` when chapters are added, renamed, or removed.
+- Update `pages/resources/llms.txt` when chapters are added, renamed, or removed.
 - Only custom elements listed in `customElements.allowedElements` in `shadow-claw.config.json` may be used in pages.
 - Keep external requests within the `security.connectSrc` allow-list.
 - Treat generated passwords as sensitive; never log or persist them.
