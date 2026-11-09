@@ -1,0 +1,20 @@
+{
+  "name": "pwgen-knowledge-hub",
+  "version": "1.0.0",
+  "description": "WebAssembly password generator compiled for CLI, Custom Elements, ESM, Node.js, and Web App exploration, powered by ShadowClaw.",
+  "type": "module",
+  "scripts": {
+    "format": "npx -y prettier -w .",
+    "test": "node --test test/*.test.mjs"
+  },
+  "keywords": [
+    "pwgen",
+    "shadow-claw",
+    "wasm",
+    "pwa"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.9.10"
+  }
+}
