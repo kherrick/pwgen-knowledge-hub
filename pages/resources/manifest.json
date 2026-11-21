@@ -47,6 +47,12 @@
       "purpose": "any"
     },
     {
+      "src": "assets/icons/167.png",
+      "sizes": "167x167",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "assets/icons/180.png",
       "sizes": "180x180",
       "type": "image/png",

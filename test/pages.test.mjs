@@ -40,6 +40,10 @@ test("PWA Manifest: pwgen manifest metadata and isolation", () => {
     "Must include favicon.svg",
   );
   assert.ok(
+    iconSources.includes("assets/icons/167.png"),
+    "Must include 167.png for iPad Pro Apple touch icons",
+  );
+  assert.ok(
     iconSources.includes("assets/icons/180.png"),
     "Must include 180.png for Apple/high-res launchers",
   );
@@ -92,6 +96,7 @@ test("Iconography: pwgen icons are template-specific and do not collide with def
     "96.png",
     "128.png",
     "152.png",
+    "167.png",
     "180.png",
     "192.png",
     "512.png",
